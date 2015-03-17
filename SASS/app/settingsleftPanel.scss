@@ -1,0 +1,56 @@
+//Settings → Left Panel → Filters
+#filters{
+  .filter-block {
+    margin: 20px 0 60px 0;
+  }
+  .input-label {
+    position: relative;
+    top: 7px;
+  }
+
+  .filter-tab-input-group {
+    float: right;
+  }
+
+  .left-pane-input-block {
+
+    input {
+      margin: 0;
+      min-width: 200px;
+
+    }
+
+    .disabled-input input, {
+      background: url(../img/leftpaneinputbg.png) no-repeat !important;
+      background-size: 100% 100%;
+      border: none;
+      width: 200px;
+      height: 30px;
+      padding: 10px;
+    }
+
+  }
+
+}
+
+//Custom Stream
+#custom-stream {
+  #customStreamNameForm {
+    width: 82%;
+
+    button {
+      position: relative;
+      top: -4px;
+    }
+  }
+
+  .add-source-wrap {
+    margin-bottom: 30px;
+
+  }
+
+  .btn-default[disabled] {
+    background: #ff9095;
+  }
+
+}

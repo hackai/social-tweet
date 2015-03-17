@@ -1,0 +1,16 @@
+
+ //shared
+.disabled-input input, {
+  background: url(../img/leftpaneinputbg.png) no-repeat !important;
+  background-size: 100% 100%;
+  border: none;
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+}
+
+//Settings → Left Panel
+@import "app/settingsleftPanel";
+
+//vendors
+@import "vendors/animate";

@@ -1,0 +1,39 @@
+
+    <div class="row" ng-controller="SelectedStreams">
+        <div class="col-md-12">
+            <h3 class="right-pane-header right-pane-width mt0 mb0">Selected Streams</h3>
+            <div class="selected-stream right-pane-width mCustomScrollbar _mCS_1" style="padding: 20px;"><div class="mCustomScrollBox mCS-dark-thick" id="mCSB_1" style="position:relative; height:100%; overflow:scroll; max-width:100%;"><div class="mCSB_container" style="position: relative; top: 0px;">
+                <form id="sstream" class="ng-pristine ng-valid">
+                    <div class="checkbox checkbox-zr checkbox-eye selected-stream-item" style="margin-top:1px;" ng-repeat="stream in allStreams" ng-show="stream.type != 'recurring'">
+                        <label for="stream-{{stream.id}}" ng-click="console.log('click')">
+                            <input id="stream-{{stream.id}}" type="checkbox" ng-init="stream.eye=true" ng-model="stream.eye" ng-change="toggleEye()" eye-checkbox checked><strong>{{stream.type}}: </strong>{{stream.name||stream.phrase}}
+                            <span></span>
+                        </label>
+                        <span class="pull-right">%</span>
+                        <input type="text" id="stream-perc-{{stream.id}}" class="percentage-input pull-right" maxlength="3" ng-model="stream.percentOfPosts" ng-blur="changeStreamConfig(stream)">
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="mCSB_scrollTools" style="position: absolute; display: block;"><a class="mCSB_buttonUp" oncontextmenu="return false;"></a><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; height: 135px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 135px;"></div></div><div class="mCSB_draggerRail"></div></div><a class="mCSB_buttonDown" oncontextmenu="return false;"></a></div>
+            </div></div> -->
+        </div> <!-- col-md-12 -->
+    </div> <!-- row -->
+    <div class="row" ng-controller="PostPreview">
+        <div class="col-md-12">
+            <h3 class="right-pane-header right-pane-width m0">Sample Zoots<i id="sample-refresh" style="cursor:pointer;" class="fa fa-refresh pull-right" ng-click="updatePreview()"></i></h3>
+            <div class="sample-posts-pane right-pane-width">
+                <div class="sample-posts mCustomScrollbar _mCS_2"><div class="mCustomScrollBox mCS-dark-thick" id="mCSB_2" style="position:relative; height:100%; overflow:scroll; max-width:100%;"><div class="mCSB_container" style="position: relative; top: 0px;">
+                    <article class="sample-post" ng-show="isFiltered() == false" ng-repeat="item in previewPosts">
+                        <p clickable-link="{{item.text}}"></p>
+                        <img src="{{item.imageURL}}" width="100%" ng-show="isImgUrl()">
+                        <p class="article-source pull-right" ng-show="item.stream.type == 'recurring'">from {{item.stream.type}} stream</p>
+                        <p class="article-source pull-right" ng-show="item.stream.type != 'recurring'">from "{{item.stream.details.name||item.stream.details.phrase}}" {{item.stream.type}} stream</p>
+                        <div class="clearfix"></div>
+                    </article> 
+                </div>
+                <!-- <div class="mCSB_scrollTools" style="position: absolute; display: block;"><a class="mCSB_buttonUp" oncontextmenu="return false;"></a><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; height: 353px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 353px;"></div></div><div class="mCSB_draggerRail"></div></div><a class="mCSB_buttonDown" oncontextmenu="return false;"></a></div></div></div>  -->
+                <!-- sample-posts -->
+            </div> <!-- sample-posts-pane -->
+        </div> <!-- col-md-12 -->
+        <button class="btn-activate-zr btn btn-block hidden-lg hidden-md">ACTIVATE</button>
+    </div> <!-- row -->

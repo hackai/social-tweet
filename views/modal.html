@@ -1,0 +1,466 @@
+<!-- 3-Custom Stream -->
+
+<!-- End 3-Custom Stream -->
+<!-- Start Account Settings Modal -->
+<div class="modal fade" id="account-setting-modal" tabindex="-1" role="dialog" aria-labelledby="account-settings" aria-hidden="true" ng-controller="User">
+<div class="modal-dialog account-settings-modal">
+<div class="modal-content">
+<div class="modal-header modal-header-zr">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title modal-title-zr" id="myModalLabel">Account Settings</h4>
+</div>
+<div class="modal-body">
+    <!-- Add .validation-error to input field if vaildation false -->
+    <form name="form" class="form-horizontal ac-modal-form" role="form" novalidate>
+        <div class="form-group validation-box mb20" ng-show="form.$invalid && form.tried">
+            <p class="error">The following errors occured:</p>
+            <p ng-show="form.firstName.$invalid"><i>Required Field</i> - First Name</p>
+            <p ng-show="form.lastName.$invalid"><i>Required Field</i> - Last Name</p>
+            <p ng-show="form.email.$invalid"><i>Required Field</i> - Email</p>
+            <p ng-show="form.timezone.$invalid"><i>Required Field</i> - Time Zone</p>
+        </div>
+        <div class="form-group">
+            <label for="asfn" class="control-label col-md-3">First Name:</label>
+            <div class="col-md-7 acinput">
+                <input type="text" class="form-control" id="asfn" placeholder="" name="firstName" ng-model="user.firstName" required>
+            </div>
+        </div> <!-- form-group -->
+        <div class="form-group">
+            <label for="asln" class="control-label col-md-3">Last Name:</label>
+            <div class="col-md-7 acinput">
+                <!-- <input type="text" class="form-control validation-error" id="asln" placeholder="" ng-model="user.lastName"> -->
+                <input type="text" class="form-control" id="asln" placeholder="" name="lastName" ng-model="user.lastName" required>
+            </div>
+        </div> <!-- form-group -->
+        <div class="form-group">
+            <label for="asem" class="control-label col-md-3">Email:</label>
+            <div class="col-md-7 acinput">
+                <input type="email" class="form-control" id="asem" placeholder="" name="email" ng-model="user.email" required/>
+            </div>
+        </div> <!-- form-group -->
+        <div class="form-group">
+            <label for="asem" class="control-label col-md-3">Company:</label>
+            <div class="col-md-7 acinput">
+                <input type="text" class="form-control" id="asc" placeholder="" ng-model="user.companyName">
+            </div>
+        </div> <!-- form-group -->
+        <div class="form-group">
+            <label for="asem" class="control-label col-md-3">Time Zone:</label>
+            <div class="col-md-7 acinput">
+                <div class="timezone-select">
+                    <select ng-model="user.timezone" ng-change="updateTimezone()" name="timezone" required>
+                        <option value="-11:00">(GMT-11:00) International Date Line West</option>
+                        <option value="-11:00">(GMT-11:00) Midway Island</option>
+                        <option value="-11:00">(GMT-11:00) Samoa</option>
+                        <option value="-10:00">(GMT-10:00) Hawaii</option>
+                        <option value="-09:00">(GMT-09:00) Alaska</option>
+                        <option value="-08:00">(GMT-08:00) Pacific Time (US & Canada)</option>
+                        <option value="-08:00">(GMT-08:00) Tijuana</option>
+                        <option value="-07:00">(GMT-07:00) Arizona</option>
+                        <option value="-07:00">(GMT-07:00) Chihuahua</option>
+                        <option value="-07:00">(GMT-07:00) Mazatlan</option>
+                        <option value="-07:00">(GMT-07:00) Mountain Time (US & Canada)</option>
+                        <option value="-06:00">(GMT-06:00) Central America</option>
+                        <option value="-06:00">(GMT-06:00) Central Time (US & Canada)</option>
+                        <option value="-06:00">(GMT-06:00) Guadalajara</option>
+                        <option value="-06:00">(GMT-06:00) Mexico City</option>
+                        <option value="-06:00">(GMT-06:00) Monterrey</option>
+                        <option value="-06:00">(GMT-06:00) Saskatchewan</option>
+                        <option value="-05:00">(GMT-05:00) Bogota</option>
+                        <option value="-05:00">(GMT-05:00) Eastern Time (US & Canada)</option>
+                        <option value="-05:00">(GMT-05:00) Indiana (East)</option>
+                        <option value="-05:00">(GMT-05:00) Lima</option>
+                        <option value="-05:00">(GMT-05:00) Quito</option>
+                        <option value="-04:30">(GMT-04:30) Caracas</option>
+                        <option value="-04:00">(GMT-04:00) Atlantic Time (Canada)</option>
+                        <option value="-04:00">(GMT-04:00) Georgetown</option>
+                        <option value="-04:00">(GMT-04:00) La Paz</option>
+                        <option value="-04:00">(GMT-04:00) Santiago</option>
+                        <option value="-03:30">(GMT-03:30) Newfoundland</option>
+                        <option value="-03:00">(GMT-03:00) Brasilia</option>
+                        <option value="-03:00">(GMT-03:00) Buenos Aires</option>
+                        <option value="-03:00">(GMT-03:00) Greenland</option>
+                        <option value="-02:00">(GMT-02:00) Mid-Atlantic</option>
+                        <option value="-01:00">(GMT-01:00) Azores</option>
+                        <option value="-01:00">(GMT-01:00) Cape Verde Is.</option>
+                        <option value="00:00">(GMT+00:00) Casablanca</option>
+                        <option value="00:00">(GMT+00:00) Dublin</option>
+                        <option value="00:00">(GMT+00:00) Edinburgh</option>
+                        <option value="00:00">(GMT+00:00) Lisbon</option>
+                        <option value="00:00">(GMT+00:00) London</option>
+                        <option value="00:00">(GMT+00:00) Monrovia</option>
+                        <option value="00:00">(GMT+00:00) UTC</option>
+                        <option value="+01:00">(GMT+01:00) Amsterdam</option>
+                        <option value="+01:00">(GMT+01:00) Belgrade</option>
+                        <option value="+01:00">(GMT+01:00) Berlin</option>
+                        <option value="+01:00">(GMT+01:00) Bern</option>
+                        <option value="+01:00">(GMT+01:00) Bratislava</option>
+                        <option value="+01:00">(GMT+01:00) Brussels</option>
+                        <option value="+01:00">(GMT+01:00) Budapest</option>
+                        <option value="+01:00">(GMT+01:00) Copenhagen</option>
+                        <option value="+01:00">(GMT+01:00) Ljubljana</option>
+                        <option value="+01:00">(GMT+01:00) Madrid</option>
+                        <option value="+01:00">(GMT+01:00) Paris</option>
+                        <option value="+01:00">(GMT+01:00) Prague</option>
+                        <option value="+01:00">(GMT+01:00) Rome</option>
+                        <option value="+01:00">(GMT+01:00) Sarajevo</option>
+                        <option value="+01:00">(GMT+01:00) Skopje</option>
+                        <option value="+01:00">(GMT+01:00) Stockhol</option>
+                        <option value="+01:00">(GMT+01:00) Vienna</option>
+                        <option value="+01:00">(GMT+01:00) Warsaw</option>
+                        <option value="+01:00">(GMT+01:00) West Central Africa</option>
+                        <option value="+01:00">(GMT+01:00) Zagreb</option>
+                        <option value="+02:00">(GMT+02:00) Athens</option>
+                        <option value="+02:00">(GMT+02:00) Bucharest</option>
+                        <option value="+02:00">(GMT+02:00) Cairo</option>
+                        <option value="+02:00">(GMT+02:00) Harare</option>
+                        <option value="+02:00">(GMT+02:00) Helsinki</option>
+                        <option value="+02:00">(GMT+02:00) Istanbul</option>
+                        <option value="+02:00">(GMT+02:00) Jerusalem</option>
+                        <option value="+02:00">(GMT+02:00) Kyiv</option>
+                        <option value="+02:00">(GMT+02:00) Pretoria</option>
+                        <option value="+02:00">(GMT+02:00) Riga</option>
+                        <option value="+02:00">(GMT+02:00) Sofia</option>
+                        <option value="+02:00">(GMT+02:00) Tallinn</option>
+                        <option value="+02:00">(GMT+02:00) Vilnius</option>
+                        <option value="+03:00">(GMT+03:00) Baghdad</option>
+                        <option value="+03:00">(GMT+03:00) Kuwait</option>
+                        <option value="+03:00">(GMT+03:00) Minsk</option>
+                        <option value="+03:00">(GMT+03:00) Nairobi</option>
+                        <option value="+03:00">(GMT+03:00) Riyadh</option>
+                        <option value="+03:30">(GMT+03:30) Tehran</option>
+                        <option value="+04:00">(GMT+04:00) Abu Dhabi</option>
+                        <option value="+04:00">(GMT+04:00) Baku</option>
+                        <option value="+04:00">(GMT+04:00) Moscow</option>
+                        <option value="+04:00">(GMT+04:00) Muscat</option>
+                        <option value="+04:00">(GMT+04:00) St. Petersburg</option>
+                        <option value="+04:00">(GMT+04:00) Tbilisi</option>
+                        <option value="+04:00">(GMT+04:00) Volgograd</option>
+                        <option value="+04:00">(GMT+04:00) Yerevan</option>
+                        <option value="+04:30">(GMT+04:30) Kabul</option>
+                        <option value="+05:00">(GMT+05:00) Islamabad</option>
+                        <option value="+05:00">(GMT+05:00) Karachi</option>
+                        <option value="+05:00">(GMT+05:00) Tashkent</option>
+                        <option value="+05:30">(GMT+05:30) Chennai</option>
+                        <option value="+05:30">(GMT+05:30) Kolkata</option>
+                        <option value="+05:30">(GMT+05:30) Mumbai</option>
+                        <option value="+05:30">(GMT+05:30) New Delhi</option>
+                        <option value="+05:30">(GMT+05:30) Sri Jayawardenepura</option>
+                        <option value="+05:45">(GMT+05:45) Kathmandu</option>
+                        <option value="+06:00">(GMT+06:00) Almaty</option>
+                        <option value="+06:00">(GMT+06:00) Astana</option>
+                        <option value="+06:00">(GMT+06:00) Dhaka</option>
+                        <option value="+06:00">(GMT+06:00) Ekaterinburg</option>
+                        <option value="+06:30">(GMT+06:30) Rangoon</option>
+                        <option value="+07:00">(GMT+07:00) Bangkok</option>
+                        <option value="+07:00">(GMT+07:00) Hanoi</option>
+                        <option value="+07:00">(GMT+07:00) Jakarta</option>
+                        <option value="+07:00">(GMT+07:00) Novosibirsk</option>
+                        <option value="+08:00">(GMT+08:00) Beijing</option>
+                        <option value="+08:00">(GMT+08:00) Chongqing</option>
+                        <option value="+08:00">(GMT+08:00) Hong Kong</option>
+                        <option value="+08:00">(GMT+08:00) Krasnoyarsk</option>
+                        <option value="+08:00">(GMT+08:00) Kuala Lumpur</option>
+                        <option value="+08:00">(GMT+08:00) Perth</option>
+                        <option value="+08:00">(GMT+08:00) Singapore</option>
+                        <option value="+08:00">(GMT+08:00) Taipei</option>
+                        <option value="+08:00">(GMT+08:00) Ulaan Bataar</option>
+                        <option value="+08:00">(GMT+08:00) Urumqi</option>
+                        <option value="+09:00">(GMT+09:00) Irkutsk</option>
+                        <option value="+09:00">(GMT+09:00) Osaka</option>
+                        <option value="+09:00">(GMT+09:00) Sapporo</option>
+                        <option value="+09:00">(GMT+09:00) Seoul</option>
+                        <option value="+09:00">(GMT+09:00) Tokyo</option>
+                        <option value="+09:30">(GMT+09:30) Adelaide</option>
+                        <option value="+09:30">(GMT+09:30) Darwin</option>
+                        <option value="+10:00">(GMT+10:00) Brisbane</option>
+                        <option value="+10:00">(GMT+10:00) Canberra</option>
+                        <option value="+10:00">(GMT+10:00) Guam</option>
+                        <option value="+10:00">(GMT+10:00) Hobart</option>
+                        <option value="+10:00">(GMT+10:00) Melbourne</option>
+                        <option value="+10:00">(GMT+10:00) Port Moresby</option>
+                        <option value="+10:00">(GMT+10:00) Sydney</option>
+                        <option value="+10:00">(GMT+10:00) Yakutsk</option>
+                        <option value="+11:00">(GMT+11:00) New Caledonia</option>
+                        <option value="+11:00">(GMT+11:00) Vladivostok</option>
+                        <option value="+12:00">(GMT+12:00) Auckland</option>
+                        <option value="+12:00">(GMT+12:00) Fiji</option>
+                        <option value="+12:00">(GMT+12:00) Kamchatka</option>
+                        <option value="+12:00">(GMT+12:00) Magadan</option>
+                        <option value="+12:00">(GMT+12:00) Marshall Is.</option>
+                        <option value="+12:00">(GMT+12:00) Solomon Is.</option>
+                        <option value="+12:00">(GMT+12:00) Wellington</option>
+                        <option value="+13:00">(GMT+13:00) Nuku'alo</option>
+                    </select>
+                </div>
+            </div>
+        </div> <!-- form-group -->
+        <div class="form-group mt35">
+            <div for="" class="col-md-3">
+                <button class="remove-table-item pause-posts-btn pull-left">Pause All Posts</button>
+            </div>
+            <div class="col-md-7">
+                <button class="btn btn-default pull-right" ng-click="updateUser()">Save</button>
+            </div>
+        </div> <!-- form-group -->
+        <div class="form-group">
+            <div class="col-md-3">
+                <a href="" data-dismiss="modal" class="pull-right">Cancel Account</a>
+            </div>
+        </div> <!-- form-group -->
+    </form>
+</div> <!-- modal-body -->
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Account Settings Modal -->
+<!-- Start Add Channel Modal -->
+
+</div><!-- /.modal -->
+<!-- End Add Channel Modal -->
+<!-- Start Complete Signup Modal -->
+<div class="modal fade" id="complete-signup-modal" tabindex="-1" role="dialog" aria-labelledby="complete-signup-modal" aria-hidden="true" data-keyboard="false" data-backdrop="static" ng-controller="Signup">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-zr">
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                <h4 class="modal-title modal-title-zr" id="myModalLabel">Complete Signup</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group validation-box mb20" ng-show="form.$invalid && form.tried">
+                    <p class="error">&nbsp;&nbsp;The following errors occured:</p>
+                    <p ng-show="form.email.$invalid"><i>Invalid Field</i> - Email</p>
+                    <p ng-show="form.agreement.$invalid">Should Agree to ZootRock's Terms of Service</p>
+                    <p ng-show="form.timezone.$invalid">Should Choose the Timezone</p>
+                </div>
+                <form name="form" novalidate>
+                    <div class="row ta-center mt30">
+                        <div class="col-md-12"><p>What's the best email address for us to stay in touch with you?</p></div>
+                    </div>
+                    <div class="row ta-center mb20">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Email" class="input-lg" ng-model="user.email" required>
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                    <div class="row ta-center mb20">
+                        <div class="col-md-12">
+                            <p>What time zone are you in?</p>
+                            <select ng-model="user.timezone" name="timezone" class="input-lg" required>
+                                <option value="-11:00">(GMT-11:00) International Date Line West</option>
+                                <option value="-11:00">(GMT-11:00) Midway Island</option>
+                                <option value="-11:00">(GMT-11:00) Samoa</option>
+                                <option value="-10:00">(GMT-10:00) Hawaii</option>
+                                <option value="-09:00">(GMT-09:00) Alaska</option>
+                                <option value="-08:00">(GMT-08:00) Pacific Time (US & Canada)</option>
+                                <option value="-08:00">(GMT-08:00) Tijuana</option>
+                                <option value="-07:00">(GMT-07:00) Arizona</option>
+                                <option value="-07:00">(GMT-07:00) Chihuahua</option>
+                                <option value="-07:00">(GMT-07:00) Mazatlan</option>
+                                <option value="-07:00">(GMT-07:00) Mountain Time (US & Canada)</option>
+                                <option value="-06:00">(GMT-06:00) Central America</option>
+                                <option value="-06:00">(GMT-06:00) Central Time (US & Canada)</option>
+                                <option value="-06:00">(GMT-06:00) Guadalajara</option>
+                                <option value="-06:00">(GMT-06:00) Mexico City</option>
+                                <option value="-06:00">(GMT-06:00) Monterrey</option>
+                                <option value="-06:00">(GMT-06:00) Saskatchewan</option>
+                                <option value="-05:00">(GMT-05:00) Bogota</option>
+                                <option value="-05:00">(GMT-05:00) Eastern Time (US & Canada)</option>
+                                <option value="-05:00">(GMT-05:00) Indiana (East)</option>
+                                <option value="-05:00">(GMT-05:00) Lima</option>
+                                <option value="-05:00">(GMT-05:00) Quito</option>
+                                <option value="-04:30">(GMT-04:30) Caracas</option>
+                                <option value="-04:00">(GMT-04:00) Atlantic Time (Canada)</option>
+                                <option value="-04:00">(GMT-04:00) Georgetown</option>
+                                <option value="-04:00">(GMT-04:00) La Paz</option>
+                                <option value="-04:00">(GMT-04:00) Santiago</option>
+                                <option value="-03:30">(GMT-03:30) Newfoundland</option>
+                                <option value="-03:00">(GMT-03:00) Brasilia</option>
+                                <option value="-03:00">(GMT-03:00) Buenos Aires</option>
+                                <option value="-03:00">(GMT-03:00) Greenland</option>
+                                <option value="-02:00">(GMT-02:00) Mid-Atlantic</option>
+                                <option value="-01:00">(GMT-01:00) Azores</option>
+                                <option value="-01:00">(GMT-01:00) Cape Verde Is.</option>
+                                <option value="00:00">(GMT+00:00) Casablanca</option>
+                                <option value="00:00">(GMT+00:00) Dublin</option>
+                                <option value="00:00">(GMT+00:00) Edinburgh</option>
+                                <option value="00:00">(GMT+00:00) Lisbon</option>
+                                <option value="00:00">(GMT+00:00) London</option>
+                                <option value="00:00">(GMT+00:00) Monrovia</option>
+                                <option value="00:00">(GMT+00:00) UTC</option>
+                                <option value="+01:00">(GMT+01:00) Amsterdam</option>
+                                <option value="+01:00">(GMT+01:00) Belgrade</option>
+                                <option value="+01:00">(GMT+01:00) Berlin</option>
+                                <option value="+01:00">(GMT+01:00) Bern</option>
+                                <option value="+01:00">(GMT+01:00) Bratislava</option>
+                                <option value="+01:00">(GMT+01:00) Brussels</option>
+                                <option value="+01:00">(GMT+01:00) Budapest</option>
+                                <option value="+01:00">(GMT+01:00) Copenhagen</option>
+                                <option value="+01:00">(GMT+01:00) Ljubljana</option>
+                                <option value="+01:00">(GMT+01:00) Madrid</option>
+                                <option value="+01:00">(GMT+01:00) Paris</option>
+                                <option value="+01:00">(GMT+01:00) Prague</option>
+                                <option value="+01:00">(GMT+01:00) Rome</option>
+                                <option value="+01:00">(GMT+01:00) Sarajevo</option>
+                                <option value="+01:00">(GMT+01:00) Skopje</option>
+                                <option value="+01:00">(GMT+01:00) Stockhol</option>
+                                <option value="+01:00">(GMT+01:00) Vienna</option>
+                                <option value="+01:00">(GMT+01:00) Warsaw</option>
+                                <option value="+01:00">(GMT+01:00) West Central Africa</option>
+                                <option value="+01:00">(GMT+01:00) Zagreb</option>
+                                <option value="+02:00">(GMT+02:00) Athens</option>
+                                <option value="+02:00">(GMT+02:00) Bucharest</option>
+                                <option value="+02:00">(GMT+02:00) Cairo</option>
+                                <option value="+02:00">(GMT+02:00) Harare</option>
+                                <option value="+02:00">(GMT+02:00) Helsinki</option>
+                                <option value="+02:00">(GMT+02:00) Istanbul</option>
+                                <option value="+02:00">(GMT+02:00) Jerusalem</option>
+                                <option value="+02:00">(GMT+02:00) Kyiv</option>
+                                <option value="+02:00">(GMT+02:00) Pretoria</option>
+                                <option value="+02:00">(GMT+02:00) Riga</option>
+                                <option value="+02:00">(GMT+02:00) Sofia</option>
+                                <option value="+02:00">(GMT+02:00) Tallinn</option>
+                                <option value="+02:00">(GMT+02:00) Vilnius</option>
+                                <option value="+03:00">(GMT+03:00) Baghdad</option>
+                                <option value="+03:00">(GMT+03:00) Kuwait</option>
+                                <option value="+03:00">(GMT+03:00) Minsk</option>
+                                <option value="+03:00">(GMT+03:00) Nairobi</option>
+                                <option value="+03:00">(GMT+03:00) Riyadh</option>
+                                <option value="+03:30">(GMT+03:30) Tehran</option>
+                                <option value="+04:00">(GMT+04:00) Abu Dhabi</option>
+                                <option value="+04:00">(GMT+04:00) Baku</option>
+                                <option value="+04:00">(GMT+04:00) Moscow</option>
+                                <option value="+04:00">(GMT+04:00) Muscat</option>
+                                <option value="+04:00">(GMT+04:00) St. Petersburg</option>
+                                <option value="+04:00">(GMT+04:00) Tbilisi</option>
+                                <option value="+04:00">(GMT+04:00) Volgograd</option>
+                                <option value="+04:00">(GMT+04:00) Yerevan</option>
+                                <option value="+04:30">(GMT+04:30) Kabul</option>
+                                <option value="+05:00">(GMT+05:00) Islamabad</option>
+                                <option value="+05:00">(GMT+05:00) Karachi</option>
+                                <option value="+05:00">(GMT+05:00) Tashkent</option>
+                                <option value="+05:30">(GMT+05:30) Chennai</option>
+                                <option value="+05:30">(GMT+05:30) Kolkata</option>
+                                <option value="+05:30">(GMT+05:30) Mumbai</option>
+                                <option value="+05:30">(GMT+05:30) New Delhi</option>
+                                <option value="+05:30">(GMT+05:30) Sri Jayawardenepura</option>
+                                <option value="+05:45">(GMT+05:45) Kathmandu</option>
+                                <option value="+06:00">(GMT+06:00) Almaty</option>
+                                <option value="+06:00">(GMT+06:00) Astana</option>
+                                <option value="+06:00">(GMT+06:00) Dhaka</option>
+                                <option value="+06:00">(GMT+06:00) Ekaterinburg</option>
+                                <option value="+06:30">(GMT+06:30) Rangoon</option>
+                                <option value="+07:00">(GMT+07:00) Bangkok</option>
+                                <option value="+07:00">(GMT+07:00) Hanoi</option>
+                                <option value="+07:00">(GMT+07:00) Jakarta</option>
+                                <option value="+07:00">(GMT+07:00) Novosibirsk</option>
+                                <option value="+08:00">(GMT+08:00) Beijing</option>
+                                <option value="+08:00">(GMT+08:00) Chongqing</option>
+                                <option value="+08:00">(GMT+08:00) Hong Kong</option>
+                                <option value="+08:00">(GMT+08:00) Krasnoyarsk</option>
+                                <option value="+08:00">(GMT+08:00) Kuala Lumpur</option>
+                                <option value="+08:00">(GMT+08:00) Perth</option>
+                                <option value="+08:00">(GMT+08:00) Singapore</option>
+                                <option value="+08:00">(GMT+08:00) Taipei</option>
+                                <option value="+08:00">(GMT+08:00) Ulaan Bataar</option>
+                                <option value="+08:00">(GMT+08:00) Urumqi</option>
+                                <option value="+09:00">(GMT+09:00) Irkutsk</option>
+                                <option value="+09:00">(GMT+09:00) Osaka</option>
+                                <option value="+09:00">(GMT+09:00) Sapporo</option>
+                                <option value="+09:00">(GMT+09:00) Seoul</option>
+                                <option value="+09:00">(GMT+09:00) Tokyo</option>
+                                <option value="+09:30">(GMT+09:30) Adelaide</option>
+                                <option value="+09:30">(GMT+09:30) Darwin</option>
+                                <option value="+10:00">(GMT+10:00) Brisbane</option>
+                                <option value="+10:00">(GMT+10:00) Canberra</option>
+                                <option value="+10:00">(GMT+10:00) Guam</option>
+                                <option value="+10:00">(GMT+10:00) Hobart</option>
+                                <option value="+10:00">(GMT+10:00) Melbourne</option>
+                                <option value="+10:00">(GMT+10:00) Port Moresby</option>
+                                <option value="+10:00">(GMT+10:00) Sydney</option>
+                                <option value="+10:00">(GMT+10:00) Yakutsk</option>
+                                <option value="+11:00">(GMT+11:00) New Caledonia</option>
+                                <option value="+11:00">(GMT+11:00) Vladivostok</option>
+                                <option value="+12:00">(GMT+12:00) Auckland</option>
+                                <option value="+12:00">(GMT+12:00) Fiji</option>
+                                <option value="+12:00">(GMT+12:00) Kamchatka</option>
+                                <option value="+12:00">(GMT+12:00) Magadan</option>
+                                <option value="+12:00">(GMT+12:00) Marshall Is.</option>
+                                <option value="+12:00">(GMT+12:00) Solomon Is.</option>
+                                <option value="+12:00">(GMT+12:00) Wellington</option>
+                                <option value="+13:00">(GMT+13:00) Nuku'alo</option>
+                            </select>
+                            <!-- <div class="timezone-select" style="margin-left:145px;">
+                            </div> -->
+                        </div> <!-- col-md-12 -->
+                    </div> <!-- row -->
+                    <div class="row ta-center mb10">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-zr cb-rf">
+                                <label for="csb1"><input id="csb1" name="agreement" ng-model="agreement" type="checkbox" required>I agree to ZootRock's <span></span><a href="http://zootrock.com/terms-of-service/" target="_blank">Terms of Service</a></label>
+                            </div>
+                        </div> <!-- col-md-12 -->
+                    </div> <!-- row -->
+                    <div class="row ta-center mb10" ng-show="user.twitterUsername!=null && user.twitterUsername!=''">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-zr">
+                                <label for="csb2"><input id="csb2" type="checkbox" ng-model="followTwitter" ng-init="followTwitter=(user.twitterUsername!=null && user.twitterUsername!='')" checked="true">Follow ZootRock on Twitter<span></span></label>
+                            </div>
+                        </div> <!-- col-md-12 -->
+                    </div> <!-- row -->
+                    <div class="row ta-center">
+                        <div class="col-md-12">
+                            <button class="btn btn-default" ng-click="updateUser()">Get Started!</button>
+                        </div>
+                    </div> <!-- row -->
+                </form>
+            </div> <!-- modal-body -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Complete Signup Modal -->
+<!-- Start Refer A Friend Modal -->
+<div class="modal fade" id="refer-friend-modal" tabindex="-1" role="dialog" aria-labelledby="refer-friend-modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header-zr">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title modal-title-zr" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row ta-center mb20">
+                    <div class="col-md-12"><h3>Know somebody who might like ZootRock?</h3></div>
+                </div>
+                <div class="row ta-center mb10">
+                    <div class="col-md-12">
+                        <p>Every friend you refer us that ends up signing up automatically knocks $10 off your monthly payment - forever.</p>
+                    </div>
+                </div> <!-- row -->
+                <div class="row ta-center mb20">
+                    <div class="col-md-12">
+                        <p>Enter their email address below:</p>
+                        <div class="form-group modal-input-block">
+                            <input type="email" placeholder="" class="best-email-input">
+                        </div>
+                    </div> <!-- col-md-12 -->
+                </div> <!-- row -->
+                <div class="row ta-center mb10">
+                    <div class="col-md-12">
+                        <div class="checkbox checkbox-zr cb-rf">
+                            <label for="rfcb1"><input id="rfcb1" type="checkbox" checked="true">I agree to ZootRock's <a href="">Referral Policy</a><span></span></label>
+                        </div>
+                    </div> <!-- col-md-12 -->
+                </div> <!-- row -->
+                <div class="row ta-center">
+                    <div class="col-md-12">
+                        <button class="get-started-btn">Send the Invite!</button>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- modal-body -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Refer A Friend Modal -->
+<!-- Start Select Plan Modal -->
+<!-- End Select Plan Modal

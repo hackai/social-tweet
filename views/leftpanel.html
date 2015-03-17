@@ -1,0 +1,429 @@
+
+<div class="row">
+<div class="col-md-12">
+<div class="left-pane-wrap">
+<ul class="nav nav-tabs nav-tabs-zr pull-left" id="left-pane-tab">
+    <li class="active"><a data-toggle="tab" data-target="#curated"><div class="tab-icon-wrap"><div class="star-icon"></div></div>Curated</a></li>
+    <li><a href="" data-toggle="tab" data-target="#keyphrases"><div class="tab-icon-wrap"><div class="key-icon"></div></div>Key Phrases</a></li>
+    <li><a href="" data-toggle="tab" data-target="#custom"><div class="tab-icon-wrap"><div class="tools-icon"></div></div>Custom</a></li>
+    <li><a href="" data-toggle="tab" data-target="#filters"><div class="tab-icon-wrap"><div class="filter-icon"></div></div>Filters</a></li>
+    <li><a href="" data-toggle="tab" data-target="#settings"><div class="tab-icon-wrap"><div class="prefs-icon"></div></div>Preferences</a></li>
+    <li><a href="" data-toggle="tab" data-target="#recurring"><div class="tab-icon-wrap"><div class="recurring-icon"></div></div>Recurring</a></li>
+</ul>
+<div class="tab-content tab-content-zr">
+<!-- Start Currated Tab Left Pane -->
+<div class="tab-pane tab-pane-zr active" id="curated">
+<h3 class="left-pane-header">Choose Your Curated Streams:</h3>
+<div class="collapsable-list">
+<div class="panel-group panel-group-zr" id="accordion" ng-controller="CuratedStream">
+<!-- Start Lifestyle Streams accordion -->
+    <div class="panel panel-zr panel-default curated-stream-item" ng-repeat="(key,value) in curatedStreams">
+        <div class="panel-heading">
+            <h4 class="panel-title panel-title-zr">
+                <a href="" data-target="#{{trimStr(key)}}" data-toggle="collapse" data-parent="#accordion" class="collapsed collapse-anchor">{{key}}({{countSelectedInGroup(value)}}/{{value.length}})<span></span></a>
+            </h4>
+        </div> <!-- panel-heading -->
+        <div id="{{trimStr(key)}}" class="panel-collapse collapse">
+            <div class="panel-body panel-body-zr" ng-repeat="item in value">
+                <!-- Each label in form MUST have "for" attribute for input element -->
+                <form style="margin-bottom:5px;">
+                    <div class="checkbox checkbox-zr" style="margin-bottom:5px;">
+                        <label for="{{item.id}}"><input id="{{item.id}}" type="checkbox" ng-model="item.ownedByChannel" ng-checked="item.ownedByChannel" ng-change="changeSubscription()">{{item.name}}<span></span></label>
+                    </div>
+                </form>
+            </div> <!-- lifestylestreams-panel-body -->
+        </div>
+    </div>
+</div> <!-- panel-group -->
+</div> <!-- collapsable-list -->
+</div>
+<!-- End Currated Tab Left Pane -->
+
+<!-- Start Custom Tab Left Pane -->
+<div class="tab-pane" id="custom" ng-controller="CustomStream">
+<h3 class="left-pane-header mb20">Custom Streams<button class="btn btn-default pull-right" data-toggle="modal" data-target="#custom-stream" ng-click="showNewCustomStream()">Add</button></h3>
+    <form>
+        <div class="alert" ng-repeat="customStream in customStreams" style="background-color:lightgray; margin-bottom:5px;">
+            <!-- <div class="">
+                <label for="custom-stream-{{customStream.id}}"><span></span></label>
+            </div> -->
+            <button type="button" class="close" aria-hidden="true" ng-click="removeCustomStream()">&times;</button>
+            <a id="custom-stream-{{customStream.id}}" data-toggle="modal" data-target="#custom-stream" ng-click="showCustomStream()">{{customStream.name}}</a>
+            <!-- <div class="alert"></div> -->
+            <!-- <a href="" class="close-post" ng-click="removeCustomStream()"></a> -->
+        </div>
+    </form>
+
+    <div class="modal fade" id="custom-stream" tabindex="-1" role="dialog" aria-labelledby="3-custom-stream" aria-hidden="true">
+	    <div class="modal-dialog custom-stream-modal">
+	        <div class="modal-content">
+	            <div class="modal-header modal-header-zr">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h3 class="modal-title" id="myModalLabel">Custom Stream</h3>
+	            </div>
+	            <div class="modal-body">
+	                <div class="block">
+	                    <form id="customStreamNameForm" action="" class="form-inline" name="customStreamForm" novalidate>
+	                        <div class="form-group modal-input-block">
+	                            <label for="stream-name" class="stream-name">Stream Name</label>
+	                            <input id="stream-name" class="sample-stream-input" ng-model="customStream.name" type="text" placeholder="Sample Stream Name"  required>
+	                        </div>
+		                    <button class="btn btn-default pull-right" ng-click="addCustomStream()" ng-show="customStream.id == null" ng-disabled="customStreamForm.$invalid">Save New Custom Stream</button> <!-- Add Custom Stream -->
+
+	                    </form>
+	                </div>
+	                <div class="form-group validation-box mb20" ng-show="newFeedForm.$invalid && newFeedForm.tried">
+	                    <p class="error">&nbsp;&nbsp;The following errors occured:</p>
+	                    <p ng-show="newFeedForm.name.$invalid"><i>Required Field</i> - Name</p>
+	                    <p ng-show="newFeedForm.rss.$invalid"><i>Required Field</i> - RSS</p>
+	                </div>
+	                <div class="form-group validation-box mb20" ng-show="error != null">
+	                    <p class="error">&nbsp;&nbsp;The following errors occured:</p>
+	                    <p>{{error}}</p>
+	                </div>
+	                <div class="add-source-wrap mt20" ng-show--="customStream.id != null">
+	                <span class="add-source-border-title" >
+	                  Add Source
+	                </span>
+	                    <form id="newFeedForm" name="newFeedForm" ng-disabled="!customStream.name" novalidate>
+	                        <div class="row">
+	                            <div class="col-md-4"><input type="text" class=""  ng-model="newCustomFeed.name"  ng-disabled="!customStream.name" name="name" placeholder="Source Name" required></div>
+	                            <div class="col-md-4"><input name="rss" ng-model="newCustomFeed.rss" type="url" ng-disabled="!customStream.name" placeholder="RSS Feed"  required></div>
+	                            <div class="col-md-4"><input type="text" ng-model="newCustomFeed.twitterHandle" ng-disabled="!customStream.name" name="twitterHandle" placeholder="Twitter Handle" ></div>
+	                        </div> <!-- row -->
+	                        <div class="row mt10 add-source-help">
+	                            <div class="col-md-4"><a href="" class="pull-right">What's this?</a></div>
+	                            <div class="col-md-4"><a href="" class="pull-right">What's an RSS Feed?</a></div>
+	                            <div class="col-md-4"><p class="pull-right">Include @ - e.g. @ZootRock</p></div>
+	                        </div> <!-- row -->
+	                        <div class="row">
+	                            <div class="col-md-2 col-md-offset-10">
+	                                <button class="pull-right btn btn-default" ng-disabled="!newCustomFeed.name || !newCustomFeed.rss" ng-click="addCustomFeed()"><i class="fa"></i>Add</button>
+	                            </div>
+	                        </div> <!-- row -->
+	                    </form>
+	                </div> <!-- add-source-wrap -->
+	                <table class="custom-stream-table mt25 mb15" ng-show="customStreamFeeds != null && selectedFeeds != null">
+	                    <thead>
+	                    <tr>
+	                        <th class="checkbox-column"></th>
+	                        <th class="sourcename-column">Source Name</th>
+	                        <th class="rssfeed-column">RSS Feed</th>
+	                        <th class="twitterhandle-column">Twitter Handle</th>
+	                    </tr>
+	                    </thead>
+	                    <tbody>
+	                    <tr ng-repeat="customStreamFeed in customStreamFeeds">
+	                        <td>
+	                            <div class="checkbox checkbox-zr">
+	                                <label for="custom-stream-feed-{{customStreamFeed.id}}"><input id="custom-stream-feed-{{customStreamFeed.id}}" ng-model="checked" type="checkbox" checked="false"  ng-change='selectCustomStreamFeed()'><span></span></label>
+	                            </div>
+	                        </td>
+	                        <td style="max-width:50px; word-wrap: break-word;">{{customStreamFeed.name}}</td>
+	                        <td style="max-width:450px; word-wrap: break-word;">{{customStreamFeed.rss}}</td>
+	                        <td style="max-width:50px; word-wrap: break-word;">{{customStreamFeed.twitterHandle}}</td>
+	                    </tr>
+	                    </tbody>
+	                </table>
+	                <button class="btn btn-warning pull-left" ng-click="removeCustomFeeds()" ng-show="customStreamFeeds != null && customStreamFeeds.length != 0">Remove</button>
+	                <button class="btn btn-default pull-right"
+	                        ng-click="updateCustomStream()"
+	                        ng-show="customStream.id != null"
+	                        ng-disabled="customStreamForm.$invalid || newFeedForm.$pristine">
+		                Update Custom Stream
+	                </button>
+	                <div class="clearfix"></div>
+	            </div> <!-- modal-body -->
+	        </div><!-- /.modal-content -->
+	    </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</div>
+<!-- End Custom Tab Left Pane -->
+<!-- Start Key Phrases Tab Left Pane -->
+<div class="tab-pane" id="keyphrases" ng-controller="KeyphraseStreams">
+    <h3 class="left-pane-header mb30">Source items with these keywords:</h3>
+    <div class="left-pane-input-block mb15">
+        <div class="form-group validation-box mb20" ng-show="form.$invalid && form.tried">
+            <p class="error">&nbsp;&nbsp;The following errors occured:</p>
+            <p ng-show="form.errors.length != 0"><i>Required Field</i> - {{errors[0].error}}</p>
+        </div>
+        <form name='form' novalidate>
+	        <div style="float:left;margin: 5px; margin-right: 20px;">Key Phrase:</div>
+            <input type="text" name="phrase" class="keyphrase-input" placeholder="Key Phrase" ng-model="phrase" required style="width: 150px;">
+            <div >
+                <div style="float:left;margin: 5px; margin-right: 30px;">Sentiment:</div>
+                <div class="data-repeater-sentiment-select">
+                    <!-- <span>Sentiment</span> -->
+                    <select name="sentiment" id="" ng-model="sentiment" ng-init="sentiment='neutral'" required>
+                        <!-- <option value="" >Sentiment</option> -->
+                        <option value="positive">Positive</option>
+                        <option value="negative">Negative</option>
+                        <option value="neutral">Neutral</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div style="float:left;margin: 5px">Hashtag Type:</div>
+                <div class="data-repeater-hashtagstatus-select">
+                    <select name="hashTagStatus" id="" ng-model="hashTagStatus" ng-init="hashTagStatus='none'" required>
+                        <!-- <option value="" >Hashtag Type</option> -->
+                        <option value="none" default>None</option>
+                        <option value="automatic">Automatic</option>
+                        <option value="specific">Specific</option>
+                    </select>
+                </div>
+            </div>
+            <input type="text" class="keyphrase-input" placeholder="Hash Tags" ng-model="hashTags" ng-show="hashTagStatus == 'specific'" bootstrap-tooltip="Multiple tags can be separated by space">
+        </form>
+    </div> <!-- input-block -->
+    <div class="ta-right">
+        <a href="" class="what-sentiment-link">What is Sentiment?</a>
+        <button class="btn btn-default" ng-click="addKeyphraseStream()">Add</button>
+    </div> <!-- input-block -->
+    <div class="data-repeater mt30" style="height:500px">
+        <div class="panel panel-default" ng-repeat="keyphraseStream in keyphraseStreams">
+            <div class="panel-heading">
+                <a >{{keyphraseStream.phrase}}</a>
+                <a href="" class="close" ng-click="removeKeyphraseStream()">&times;</a>
+            </div>
+            <div class="panel-body">
+                <div class="data-repeater-sentiment-select">
+                    <select name="" id="" ng-model="keyphraseStream.sentiment" ng-change="updateKeyphraseStream()">
+                        <!-- <option value="" >Sentiment</option> -->
+                        <option value="positive">Positive</option>
+                        <option value="negative">Negative</option>
+                        <option value="neutral">Neutral</option>
+                    </select>
+                </div>
+                <div class="data-repeater-hashtagstatus-select">
+                    <select name="" id="" ng-model="keyphraseStream.hashTagStatus" ng-change="updateKeyphraseStream()">
+                        <!-- <option value="" >Hashtag Type</option> -->
+                        <option value="none">None</option>
+                        <option value="automatic">Automatic</option>
+                        <option value="specific">Specific</option>
+                    </select>
+                </div>
+                <input type="text" class="keyphrase-input" placeholder="Hash Tags" ng-model="keyphraseStream.hashTags" ng-show="keyphraseStream.hashTagStatus == 'specific'" ng-blur="updateKeyphraseStream()" bootstrap-tooltip="Multiple tags can be separated by space">
+                
+            </div>
+            <!-- <div class="checkbox checkbox-zr onoff-checkbox mb0">
+                <label for="{{keyphraseStream.id}}"><input id="{{keyphraseStream.id}}" type="checkbox" ng-model="keyphraseStream.sentiment" ng-true-value="positive" ng-false-value="negative" ng-change="updateKeyphraseStream()"><span></span></label>
+            </div> -->
+        </div> <!-- data-repeater-item -->
+    </div> <!-- data-repeater -->
+    <!-- <table class="table-zr mt40">
+        <thead>
+        <tr>
+            <th class="select-cell-header">Select</th>
+            <th class="keyphrase-cell-header">Key Phrase</th>
+            <th class="sentiment-cell-header">Sentiment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="select-cell">
+                <div class="checkbox checkbox-zr mb0">
+                    <label for="kpcb1"><input id="kpcb1" type="checkbox" checked="true"><span></span></label>
+                </div>
+            </td>
+            <td class="keyphrase-cell">Viral Loop</td>
+            <td class="sentiment-cell">None</td>
+        </tr>
+        <tr>
+            <td class="select-cell">
+                <div class="checkbox checkbox-zr mb0">
+                    <label for="kpcb2"><input id="kpcb2" type="checkbox"><span></span></label>
+                </div>
+            </td>
+            <td class="keyphrase-cell">Minimum Viable Product</td>
+            <td class="sentiment-cell">None</td>
+        </tr>
+        <tr>
+            <td class="select-cell">
+                <div class="checkbox checkbox-zr mb0">
+                    <label for="kpcb3"><input id="kpcb3" type="checkbox" checked="true"><span></span></label>
+                </div>
+            </td>
+            <td class="keyphrase-cell">Automated Tweets</td>
+            <td class="sentiment-cell">None</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="remove-table-item mt20">Remove</button> -->
+</div>
+<!-- End Key Phrases Tab Left Pane -->
+<!-- Start Filters Tab Left Pane -->
+<div class="tab-pane" id="filters" style="height: 750px; overflow: auto;">
+    <h3 class="left-pane-header mb20">Filters:</h3>
+    <div ng-controller="FilterTerm" class="filter-block">
+        <h4 class="left-pane-header mb20 mt30">Keywords:</h4>
+
+        <h5 class="left-pane-header mb15">Exclude content fom these keywords:</h5>
+        <div class="form-group validation-box mb20" ng-show="form.$invalid && form.tried">
+            <p class="error">&nbsp;&nbsp;The following errors occured:</p>
+            <p ng-show="form.keyword.$invalid"><i>Required Field</i> - keyword</p>
+        </div>
+
+        <form action="" class="form-inline" name="form" novalidate>
+	        <span class="input-label">Keywords:</span>
+            <div class="form-group left-pane-input-block filter-tab-input-group">
+                <input type="text" name="keyword" class="filter-input form-control " id="" placeholder="Keyword" ng-model="keyword" required>
+                <div class="checkbox checkbox-zr filter-cb hide">
+                    <label for="urlcb1"><input id="urlcb1" type="checkbox" checked="true">Global<span></span></label>
+                </div>
+                <button class="btn btn-default" ng-click="addFilterTerm()">Add</button>
+            </div> <!-- form-group -->
+        </form>
+
+        <div class="data-repeater mt30">
+            <div class="alert" ng-repeat="filterTerm in filterTerms" style="background-color:lightgray; color:black; margin-bottom:5px;">
+                <button type="button" class="close" aria-hidden="true" ng-click="removeFilterTerm()">&times;</button>
+                <h5>{{filterTerm.term}}</h5>
+            </div> <!-- data-repeater-item -->
+        </div> <!-- data-repeater -->
+    </div>
+    <div ng-controller="FilterSite" class="filter-block">
+        <h4 class="left-pane-header mb20 mt30">Domains:</h4>
+        <h5 class="left-pane-header mb15">Exclude content from these domains:</h5>
+        <div class="form-group validation-box mb20" ng-show="form.$invalid && form.tried">
+            <p class="error">&nbsp;&nbsp;The following errors occured:</p>
+            <p ng-show="form.url.$invalid"><i>Required Field</i> - URL</p>
+        </div>
+        <form action="" class="form-inline" name="form" novalidate>
+	        <span class="input-label">URL:</span>
+	        <div class="form-group left-pane-input-block filter-tab-input-group">
+                <input type="url" name="url" class="filter-input form-control " id="" placeholder="URL" ng-model="url" required>
+                <div class="checkbox checkbox-zr filter-cb hide">
+                    <label for="urlcb1"><input id="urlcb1" type="checkbox" checked="true">Global<span></span></label>
+                </div>
+                <button class="btn btn-default" ng-click="addFilterSite()">Add</button>
+            </div> <!-- form-group -->
+        </form>
+        <div class="data-repeater mt30">
+            <div class="alert" ng-repeat="filterSite in filterSites" style="background-color:lightgray; color:black; margin-bottom:5px;">
+                <button type="button" class="close" aria-hidden="true" ng-click="removeFilterSite()">&times;</button>
+                <h5>{{filterSite.url}}</h5>
+                <!-- <div class="checkbox checkbox-zr onoff-checkbox mb0">
+                    <label for="filter-site-{{filterSite.id}}"><input id="filter-site-{{filterSite.id}}" type="checkbox" ng-model="filterSite.active" ng-checked="filterSite.active" ng-change="updateFilterSite()"><span></span></label>
+                </div> -->
+                <!-- <a href="" class="close-post" ng-click="removeFilterSite()"></a> -->
+            </div> <!-- data-repeater-item -->
+        </div> <!-- data-repeater -->
+    </div>
+</div>
+<!-- End Filters Tab Left Pane -->
+<!-- Start Preferences Tab Left Pane -->
+<div class="tab-pane" id="settings" ng-controller="ChannelPreference" style="max-height: 780px; overflow: scroll;">
+    <h3 class="left-pane-header mb20">Channel Preferences:</h3>
+    <div class="form-group validation-box mb20" ng-show="form.$invalid||form.invalidTime">
+        <p class="error">&nbsp;&nbsp;The following errors occured:</p>
+        <p ng-show="form.name.$invalid && channel.type=='rss'"><i>Required Field</i> - Name</p>
+        <p ng-show="form.maxPostsPerDay.$invalid"><i>Invalid Field</i> - Maximum zoots per day must be between 0 and 100</p>
+        <p ng-show="form.startTimeHour.$invalid"><i>Invalid Field</i> - Hour should be between 0 and 23</p>
+        <p ng-show="form.startTimeMin.$invalid"><i>Invalid Field</i> - Minute should be between 0 and 59</p>
+        <p ng-show="form.endTimeHour.$invalid"><i>Invalid Field</i> - Hour should be between 0 and 23</p>
+        <p ng-show="form.endTimeMin.$invalid"><i>Invalid Field</i> - Minute should be between 0 and 59</p>
+        <p ng-show="form.invalidTime"><i>Invalid Field</i> - Start Hour should be one hour earlier than End Hour</p>
+    </div>
+    <form action="" class="form-inline" name="form" enter>
+        <div class="form-group left-pane-input-block" ng-show="channel.type == 'twitter'">
+            <label for="handleinput" class="">Handle:</label>
+            <input type="text" class="handle-input form-control " id="handleinput" placeholder="@audreymelnick" ng-model="channel.handle" disabled>
+            <button class="btn btn-default" ng-click="authorize()" bootstrap-tooltip="This will authorize a Twitter account for this channel">Authorize</button>
+        </div> <!-- form-group -->
+        <div class="form-group left-pane-input-block" ng-show="channel.type == 'rss'">
+            <label for="rssname">Name:
+            <input type="text" class="handle-input form-control" id="rssname" name="name" placeholder="Rss Channel Name" ng-model="channel.name" ng-blur="updateChannel()" ng-required="channel.type=='rss'"></label>
+            <label for="handleinput" class="">Address: <b>{{restUrl + channel.address.substring(1)}}</b></label>
+            <!-- <input type="text" class="handle-input form-control " id="handleinput" ng-model="channel.address" disabled> -->
+        </div> <!-- form-group -->
+        <div class="form-group left-pane-input-block" ng-show="channel.type == 'facebook'">
+            <label for="handleinput" class="">Profile:</label>
+            <input type="text" class="handle-input form-control " id="handleinput" ng-model="channel.pageName" disabled>
+            <button class="btn btn-default" ng-click="authorize()" bootstrap-tooltip="This will authorize a Facebook account for this channel">Authorize</button>
+        </div> <!-- form-group -->
+        <div class="form-group left-pane-input-block" ng-show="channel.type == 'facebookpage'">
+            <label for="handleinput" class="">Page:</label>
+            <input type="text" class="handle-input form-control " id="handleinput" ng-model="channel.pageName" disabled>
+            <button class="btn btn-default" ng-click="authorize()" bootstrap-tooltip="This will authorize a Facebook Page account for this channel">Authorize</button>
+        </div> <!-- form-group -->
+        <div class="mt30 form-group left-pane-input-block max-zoots-input">
+            <label for="">Maximum zoots per day:</label>
+            <input type="number" max="99" min="1" ng-model="channel.maxPostsPerDay" name="maxPostsPerDay" ng-blur="updateChannel()" required>
+        </div> <!-- form-group -->
+        <div class="mt20 form-group left-pane-input-block start-tweet-input">
+            <label for="">Start tweeting at:</label>
+            <input type="text" max="23" min="0" ng-model="startTimeHour" name="startTimeHour" ng-pattern="/^([01]?[0-9]|2[0-3])$/" ng-required=true hour ng-blur="updateChannel()" required><span>:</span><input type="text" max="59" min="0" ng-model="startTimeMin" ng-pattern="/^[0-5][0-9]$/" name="startTimeMin" minute ng-blur="updateChannel()" required>
+            <!-- <div class="checkbox checkbox-zr ampm-checkbox mb0">
+                <label for="ampm1"><input id="ampm1" type="checkbox" checked=""><span></span></label>
+            </div> -->
+        </div> <!-- form-group -->
+        <div class="mt20 form-group left-pane-input-block stop-tweet-input">
+            <label for="">Stop tweeting at:</label>
+            <input type="text" max="23" min="0" ng-model="endTimeHour" name="endTimeHour" hour ng-pattern="/^([01]?[0-9]|2[0-3])$/" ng-blur="updateChannel()" required><span>:</span><input max="59" min="0" type="text" ng-model="endTimeMin" name="endTimeMin" ng-pattern="/^[0-5][0-9]$/" minute ng-blur="updateChannel()" required>
+            <!-- <div class="checkbox checkbox-zr ampm-checkbox mb0">
+                <label for="ampm2"><input id="ampm2" type="checkbox" checked=""><span></span></label>
+            </div> -->
+        </div> <!-- form-group -->
+        <div class="form-group mt20">
+            <label for="">I'm in:</label>
+            <a href="" data-toggle="modal" data-target="#account-setting-modal">Pacific Standard Time (PST)</a>
+        </div> <!-- form-group -->
+    </form>
+    <div class="checkbox checkbox-zr mt30">
+        <label for="prefcb1"><input id="prefcb1" type="checkbox" ng-model="channel.addVia" ng-checked="channel.addVia" ng-change="updateChannel()">Include Source of Post using "via @TwitterHandle"<span></span></label>
+        <a href="" class="small-anchor pull-right hidden-xs">example</a>
+    </div>
+    <div class="checkbox checkbox-zr mt30">
+        <label for="prefcb2"><input id="prefcb2" type="checkbox" ng-model="channel.includeHashtags" ng-checked="channel.includeHashtags" ng-change="updateChannel()">Add Hashtags<span></span></label>
+        <a href="" class="small-anchor pull-right hidden-xs">example</a>
+    </div>
+    <div class="checkbox checkbox-zr mt30">
+        <label for="prefcb3"><input id="prefcb3" type="checkbox" ng-checked="channel.includeWeekends" ng-model="channel.includeWeekends" ng-change="updateChannel()">Include Weekend Posts<span></span></label>
+    </div>
+    <div class="checkbox checkbox-zr mt30">
+        <label for="prefcb4"><input id="prefcb4" type="checkbox" ng-checked="channel.autoPost" ng-model="channel.autoPost" ng-change="updateChannel()">Post Automatically<span></span></label> <a href="" class="small-anchor pull-right hidden-xs">What's this?</a>
+    </div>
+    <div class="checkbox checkbox-zr mt30">
+        <label for="prefcb5"><input id="prefcb5" type="checkbox" ng-model="channel.active" ng-checked="channel.active" ng-change="deactivate()">This channel is Active<span></span></label>
+    </div>
+</div>
+<!-- End Preferences Tab Left Pane -->
+<!-- Start Recurring Tab Left Pane -->
+<div class="tab-pane" id="recurring" ng-controller="RecurringStream">
+    <h3 class="left-pane-header">Recurring Posts:</h3>
+    <p>Define posts you want posted on a recurring basis. When the list is exhausted, it will cycle through again.</p>
+    <div class="form-group validation-box mb20" ng-show="form.$invalid && form.tried">
+        <p class="error">&nbsp;&nbsp;The following errors occured:</p>
+        <p ng-show="form.recurringMaxPostsPerDay.$invalid"><i>Required Field</i> - Recurring posts per day</p>
+        <p ng-show="form.recurringItemText.$invalid"><i>Required Field</i> - Recurring Text</p>
+    </div>
+    <form action="" class="form-inline" name="form">
+        <div class=" block-center form-group left-pane-input-block mt10">
+            <label for="handleinput" class="">Recurring posts per day:</label>
+            <input type="number" class="post-per-day-input form-control " id="postsday" name="recurringMaxPostsPerDay" max="90" min="0"  ng-model="recurringStream.maxPostsPerDay" ng-blur="updateRecurringStream()" required>
+        </div> <!-- form-group -->
+        <div class="form-group mt20">
+            <textarea name="recurringItemText" id="" cols="50" rows="4" maxlength="140" placeholder="Here's where you'll write your post..." ng-model="item.text" required></textarea>
+        </div>
+        <div class="form-group pull-right mt20">
+            <button class="btn btn-default" ng-click="addRecurringStreamItem()">Add</button>
+        </div>
+        <div class="clearfix h50"></div>
+    </form>
+    <div class="data-repeater mt30">
+        <div class="data-repeater-item" ng-repeat="item in recurringStreamItems">
+            <h5>{{item.text}}</h5>
+            <div class="checkbox checkbox-zr onoff-checkbox mb0">
+                <label for="{{item.id}}"><input id="{{item.id}}" type="checkbox" ng-model="item.active" ng-checked="item.active" ng-change="updateRecurringStreamItem()"><span></span></label>
+            </div>
+            <a href="" class="close-post" ng-click="removeRecurringStreamItem()"></a>
+        </div> <!-- data-repeater-item -->
+    </div> <!-- data-repeater -->
+</div>
+<!-- End Recurring Tab Left Pane -->
+</div> <!-- tab-content -->
+</div> <!-- left-pane-wrap -->
+</div> <!-- col-md-12 -->
+</div> <!-- row -->
+

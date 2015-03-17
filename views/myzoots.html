@@ -1,0 +1,162 @@
+    <div class="container" role="main-content" ng-controller="Zoots">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="mt30 mb0 pull-right instruction-link hidden-xs"><span>Not sure where to start? </span><a ng-click="showZootTutorial()">Click Here</a></p>
+        </div>
+      </div> <!-- row -->
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="page-title mb15 mt0">My Zoots</h1>
+        </div>
+      </div> <!-- row -->
+      <div class="row mb25">
+        <div class="col-md-12">
+          <div class="channel-select">
+            <select ng-model="baseChannelId" ng-change="channelChanged()" class="form-control input">
+                <option ng-value="baseChannel.id" ng-repeat="baseChannel in baseChannels track by baseChannel.id" ng-selected="baseChannelId == baseChannel.id" data-imagesrc="img/twselect.png">{{getChannelType()}} - {{baseChannel.handle||baseChannel.pageName||baseChannel.name}}</option>
+            </select>
+          </div> <!-- channel-select -->
+        </div> <!-- col-md-12 -->
+      </div> <!-- row -->
+      <!-- Start two pane row -->
+      <div class="row">
+        <!-- Start Left Pane -->
+        <div class="col-md-9">
+					<div class="row">
+            <div class="col-md-12">
+              <ul class="nav nav-tabs nav-tabs-myzoots nav-tabs-zr" id="left-pane-tab">
+                <li class="active">
+                	<a data-toggle="tab" data-target="#upcoming">
+                		<div class="tab-icon-wrap"><div class="upcoming-icon"></div></div>Upcoming
+            		</a>
+        		</li>
+                <li><a data-toggle="tab" data-target="#past"><div class="tab-icon-wrap"><div class="past-icon"></div></div>Past</a></li>
+                <li><a data-toggle="tab" data-target="#skipped"><div class="tab-icon-wrap"><div class="skip-icon"></div></div>Skipped</a></li>
+              </ul>
+              <div class="tab-content tab-content-myzoots pt25 pb15">
+              	<div class="tab-pane active" id="upcoming">
+              		<!-- <div class="row mb25">
+              			<div class="col-md-3 col-md-offset-3"><h4 class="zoot-source pull-right">Zoot Source:</h4></div>
+				        <div class="col-md-6">
+				          <div class="channel-select">
+				            <select name="" id="">
+				              <option value="0" data-imagesrc="img/twselect.png">Twitter - @audreymelnik</option>
+				              <option value="0" data-imagesrc="img/twselect.png">Twitter - @audreymelnik</option>
+				            </select>
+				          </div>
+				        </div>
+				      </div> -->
+              		<div class="row">
+              			<div class="col-md-10 col-md-offset-1">
+              				<div class="sample-posts-pane sample-posts-pane-myzoots right-pane-width">
+				                <div class="sample-posts sample-posts-myzoots">
+				                  <article class="sample-post" ng-repeat="historyItem in historyItems" ng-show="(historyItem.processed == false || historyItem.processed == null)&& (historyItem.status=='include'||historyItem.status=='pending')">
+				                  <form name="form" novalidate>
+					                  <div class="form-group validation-box mb20" ng-show="form.$invalid">
+								            <p class="error">&nbsp;&nbsp;The following errors occured:</p>
+								            <p ng-show="form.text"><i>Invalid Field</i> - {{baseChannel.type}} Zoot text allows the string's length is between 10 and {{baseChannel.type=='twitter'?(isImgUrl()?113:139):1000}}</p>
+								        </div>
+					                  	<div class="upcoming-post">
+						                    <textarea name="text" style="width:430px;" rows="4" ng-blur="updateHistoryItem()" ng-model="historyItem.text" ng-minlength="10" ng-maxlength="{{baseChannel.type=='twitter'?(isImgUrl()?113:139):1000}}" required>
+						                    </textarea>
+						                    <!-- <div class="checkbox checkbox-zr checkbox-upcoming mb0">
+			                            		<label for="historyItem-{{historyItem.id}}">
+			                            			<input id="historyItem-{{historyItem.id}}" type="checkbox" ng-model="historyItem.status" ng-true-value="include" ng-false-value="exclude">
+			                            			<span class="context-menu"></span>
+		                            			</label>
+			                          		</div> -->
+			                          		<div class="btn-group">
+				                          		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+												    {{getHistoryItemStatus()}} <span class="caret"></span>
+												  </button>
+												  <ul class="dropdown-menu" role="menu">
+												    <li><a ng-click="includeHistoryItem()">Zoot it!</a></li>
+												    <li><a ng-click="skipHistoryItem()">Skip</a></li>
+												    <li><a ng-click="pendingHistoryItem()">Pending</a></li>
+												  </ul>
+			                          		</div>
+			                          		<div class="image-control" ng-show="isImgUrl()">
+				                          		<img src="{{historyItem.imageURL}}" style="margin-top:20px;" width="75%" >
+			                          			<a class="close" ng-click="removeImage()">x</a>
+			                          		</div>
+						                    <p class="article-count pull-left">{{historyItem.text.length}}</p>
+			                        	</div> <!-- upcoming-post -->
+					                    <p class="article-source pull-right">from {{historyItem.stream.name}} {{historyItem.stream.type}} stream</p>
+					                    <div class="clearfix"></div>
+				                  </form>
+				                  </article> <!-- sample-post -->
+				                </div> <!-- sample-posts -->
+				              </div> <!-- sample-posts-pane -->
+              			</div>
+              		</div>
+              	</div>
+              	<div class="tab-pane" id="past">
+              		<!-- <div class="row mb25">
+              			<div class="col-md-3 col-md-offset-3"><h4 class="zoot-source pull-right">Zoot Source:</h4></div>
+						        <div class="col-md-6">
+						          <div class="channel-select">
+						            <select name="" id="">
+						              <option value="0" data-imagesrc="img/twselect.png">Twitter - @audreymelnik</option>
+						              <option value="0" data-imagesrc="img/twselect.png">Twitter - @audreymelnik</option>
+						            </select>
+						          </div> 
+						        </div> 
+						      </div>  -->
+              		<div class="row">
+              			<div class="col-md-10 col-md-offset-1">
+              				<div class="sample-posts-pane sample-posts-pane-myzoots right-pane-width">
+				                <div class="sample-posts sample-posts-myzoots">
+				                  <article class="sample-post" ng-repeat="historyItem in historyItems" ng-show="historyItem.processed==true && historyItem.status=='include'">
+				                    <p clickable-link="{{historyItem.text}}"></p>
+			                        <img src="{{historyItem.imageURL}}" style="margin-top:20px;" width="80%" ng-show="isImgUrl()">
+				                    <p class="article-count pull-left" >{{historyItem.postDate|date:'yyyy-MM-dd HH:mm:ss'}}</p>
+				                    <p class="article-source pull-right">from {{historyItem.stream.name}} {{historyItem.stream.type}} stream</p>
+				                    <div class="clearfix"></div>
+				                  </article>
+				                </div> <!-- sample-posts -->
+				              </div> <!-- sample-posts-pane -->
+              			</div>
+              		</div>
+              	</div>
+				  <div class="tab-pane" id="skipped">
+              		<!-- <div class="row mb25">
+              			<div class="col-md-3 col-md-offset-3"><h4 class="zoot-source pull-right">Zoot Source:</h4></div>
+						        <div class="col-md-6">
+						          <div class="channel-select">
+						            <select name="" id="">
+						              <option value="0" data-imagesrc="img/twselect.png">Twitter - @audreymelnik</option>
+						              <option value="0" data-imagesrc="img/twselect.png">Twitter - @audreymelnik</option>
+						            </select>
+						          </div> 
+						        </div> 
+						      </div>  -->
+              		<div class="row">
+              			<div class="col-md-10 col-md-offset-1">
+              				<div class="sample-posts-pane sample-posts-pane-myzoots right-pane-width">
+				                <div class="sample-posts sample-posts-myzoots">
+				                	<article class="sample-post" ng-repeat="historyItem in historyItems" ng-show="historyItem.status=='skip'">
+					                    <p clickable-link="{{historyItem.text}}"></p>
+				                        <img src="{{historyItem.imageURL}}" style="margin-top:20px;" width="80%" ng-show="isImgUrl()">
+					                    <p class="article-count pull-left">{{historyItem.postDate|date:'yyyy-MM-dd HH:mm:ss'}}</p>
+					                    <p class="article-source pull-right">from {{historyItem.stream.name}} {{historyItem.stream.type}} stream</p>
+					                    <div class="clearfix"></div>
+				                    </article> 
+				                </div> <!-- sample-posts -->
+				              </div> <!-- sample-posts-pane -->
+              			</div>
+              		</div>
+              	</div>
+							</div> <!-- tab-content -->
+		        </div> <!-- col-md-12 --> 
+		      </div> <!-- row -->
+        <!-- End Left Pane -->
+        </div>
+        <!-- Start Right Pane -->
+				<div class="col-md-3">
+					<h4>Want to learn how to use the My Zoots page more effectively? </h4>
+					<img src="img/video.png" alt="">
+					<a href="">Watch this quick video >> </a>
+				</div> 
+				<!-- End Right Pane -->
+    </div> <!-- main-content -->
+  </div>

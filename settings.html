@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ZootRock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+    <nav class="navbar navbar-default navbar-zr navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#zr-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="" class="navbar-brand navbar-brand-zr"><img src="img/logo.png"></a>
+        </div> <!-- navbar-header -->
+        <nav class="collapse navbar-collapse" id="zr-navbar-collapse" >
+          <ul class="nav navbar-nav navbar-nav-zr">
+            <li><a href="">Settings</a></li>
+            <li><a href="myzoots.html">Zoots</a></li>
+            <li><a href="">Pricing</a></li>
+            <li><a href="">Support</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-nav-zr navbar-right">
+            <li class="user-name">Welcome back, Name!</li>
+            <li><a href="">Logout</a></li>
+          </ul>
+        </nav> <!-- navbar fixed-top -->
+      </div> <!-- container -->
+    </nav>
+    </header>
+    <div class="container" role="main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="mt30 mb0 pull-right instruction-link hidden-xs"><span>Not sure where to start? </span><a href=""> Watch this video >></a></p>
+        </div>
+      </div> <!-- row -->
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="page-title mb15 mt0">Settings</h1>
+        </div>
+      </div> <!-- row -->
+      <div class="row mb25">
+        <div class="col-md-12">
+          <div class="channel-select">
+            <select name="" id="">
+              <option value="0" data-imagesrc="img/twselect.png">Twitter - @audreymelnik</option>
+              <option value="0" data-imagesrc="img/twselect.png">Twitter - @audreymelnik</option>
+            </select>
+          </div> <!-- channel-select -->
+          <a href="" data-toggle="modal" data-target="#add-channel-modal" class="add-channel-anchor hidden-xs">Add Channel</a>
+        </div> <!-- col-md-12 -->
+      </div> <!-- row -->
+      <div class="row">
+        <div class="col-md-12 mb10">
+          <a href="" class="concierge-anchor hidden-xs">Outsource this to a ZootRock Concierge <img src="img/questionmark.png" alt=""></a>
+        </div>
+      </div> <!-- row  --> 
+      <!-- Start Notification Row -->
+      <div class="row notification mb15">
+        <div class="col-md-12">
+          <div class="notification-wrap">
+            <h5 class="notification-title">The following errors occured:</h5>
+            <p class="notification-error"><i>This is a sample error message - please contact support</i></p>
+          </div>
+        </div> <!-- col-md-12 -->
+      </div> <!-- row -->
+      <!-- End Notification Row -->
+      <!-- Start two pane row -->
+      <div class="row">
+        <!-- Start Left Pane -->
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12">
+            <div class="left-pane-wrap">
+              <ul class="nav nav-tabs nav-tabs-zr pull-left" id="left-pane-tab">
+                <li class="active"><a href="#curated" data-toggle="tab"><div class="tab-icon-wrap"><div class="star-icon"></div></div>Curated</a></li>
+                <li><a href="#keyphrases" data-toggle="tab"><div class="tab-icon-wrap"><div class="key-icon"></div></div>Key Phrases</a></li>
+                <li><a href="#custom" data-toggle="tab"><div class="tab-icon-wrap"><div class="tools-icon"></div></div>Custom</a></li>
+                <li><a href="#filters" data-toggle="tab"><div class="tab-icon-wrap"><div class="filter-icon"></div></div>Filters</a></li>
+                <li><a href="#settings" data-toggle="tab"><div class="tab-icon-wrap"><div class="prefs-icon"></div></div>Preferences</a></li>
+                <li><a href="#recurring" data-toggle="tab"><div class="tab-icon-wrap"><div class="recurring-icon"></div></div>Recurring</a></li>
+              </ul>
+              <div class="tab-content tab-content-zr">
+                <!-- Start Currated Tab Left Pane -->
+                <div class="tab-pane tab-pane-zr active" id="curated">
+                  <h3 class="left-pane-header">Choose Your Curated Streams:</h3>
+                  <div class="collapsable-list">
+                    <div class="panel-group panel-group-zr" id="accordion">
+                      <!-- Start Lifestyle Streams accordion -->
+                      <div class="panel panel-zr panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title panel-title-zr">
+                            <a href="#lifestylestreams" data-toggle="collapse" data-parent="#accordion" class="collapsed collapse-anchor">Lifestyle Streams (4/9)<span></span></a>
+                          </h4>
+                        </div> <!-- panel-heading -->
+                        <div id="lifestylestreams" class="panel-collapse collapse">
+                          <div class="panel-body panel-body-zr">
+                            <!-- Each label in form MUST have "for" attribute for input element -->
+                            <form>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb1"><input id="cb1" type="checkbox" checked="true">Cooking<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb2"><input id="cb2" type="checkbox">Healthy Cookings<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb3"><input id="cb3" type="checkbox">Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb4"><input id="cb4" type="checkbox" checked="true">Holistic Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb5"><input id="cb5" type="checkbox">Medicine<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb6"><input id="cb6" type="checkbox" checked="true">Fitness<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb7"><input id="cb7" type="checkbox">Dating<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb8"><input id="cb8" type="checkbox">Travel<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb9"><input id="cb9" type="checkbox" checked="true">Travel Images<span></span></label>
+                              </div>
+                            </form>
+                          </div> <!-- lifestylestreams-panel-body -->
+                        </div> 
+                      </div>
+                      <!-- End Lifestyle Streams accordion --> 
+                      <!-- Start Technology Streams accordion -->
+                      <div class="panel panel-zr panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title panel-title-zr">
+                            <a href="#technologystreams" data-toggle="collapse" data-parent="#accordion" class="collapsed collapse-anchor">Technology Streams (3/3)<span></span></a>
+                          </h4>
+                        </div> <!-- panel-heading -->
+                        <div id="technologystreams" class="panel-collapse collapse">
+                          <div class="panel-body panel-body-zr">
+                            <!-- Each label in form MUST have "for" attribute for input element -->
+                            <form>
+                              <div class="checkbox checkbox-zr">
+                                <label for="acb1"><input id="acb1" type="checkbox" checked="true">Cooking<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="acb2"><input id="acb2" type="checkbox">Healthy Cookings<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="acb3"><input id="acb3" type="checkbox">Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="acb4"><input id="acb4" type="checkbox" checked="true">Holistic Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="acb5"><input id="acb5" type="checkbox">Medicine<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="acb6"><input id="acb6" type="checkbox" checked="true">Fitness<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="acb7"><input id="acb7" type="checkbox">Dating<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="acb8"><input id="acb8" type="checkbox">Travel<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="acb9"><input id="acb9" type="checkbox" checked="true">Travel Images<span></span></label>
+                              </div>
+                            </form>
+                          </div> <!-- technology-panel-body -->
+                        </div> 
+                      </div> 
+                      <!-- End Technology Streams accordion -->
+                      <!-- Start Business Streams accordion -->
+                      <div class="panel panel-zr panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title panel-title-zr">
+                            <a href="#businessstreams" data-toggle="collapse" data-parent="#accordion" class="collapsed collapse-anchor">Business Streams (2/6)<span></span></a>
+                          </h4>
+                        </div> <!-- panel-heading -->
+                        <div id="businessstreams" class="panel-collapse collapse">
+                          <div class="panel-body panel-body-zr">
+                            <!-- Each label in form MUST have "for" attribute for input element -->
+                            <form>
+                              <div class="checkbox checkbox-zr">
+                                <label for="bcb1"><input id="bcb1" type="checkbox" checked="true">Cooking<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="bcb2"><input id="bcb2" type="checkbox">Healthy Cookings<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="bcb3"><input id="bcb3" type="checkbox">Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="bcb4"><input id="bcb4" type="checkbox" checked="true">Holistic Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="bcb5"><input id="bcb5" type="checkbox">Medicine<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="bcb6"><input id="bcb6" type="checkbox" checked="true">Fitness<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="bcb7"><input id="bcb7" type="checkbox">Dating<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="bcb8"><input id="bcb8" type="checkbox">Travel<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="bcb9"><input id="bcb9" type="checkbox" checked="true">Travel Images<span></span></label>
+                              </div>
+                            </form>
+                          </div> <!-- businessstreams-panel-body -->
+                        </div> 
+                      </div> 
+                      <!-- End Business Streams accordion -->
+                      <!-- Start Entertainment Streams accordion -->
+                      <div class="panel panel-zr panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title panel-title-zr">
+                            <a href="#entertainment" data-toggle="collapse" data-parent="#accordion" class="collapsed collapse-anchor">Entertainment Streams (0/4)<span></span></a>
+                          </h4>
+                        </div> <!-- panel-heading -->
+                        <div id="entertainment" class="panel-collapse collapse">
+                          <div class="panel-body panel-body-zr">
+                           <!-- Each label in form MUST have "for" attribute for input element -->
+                            <form>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb10"><input id="cb10" type="checkbox" checked="true">Cooking<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb11"><input id="cb11" type="checkbox">Healthy Cookings<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb12"><input id="cb12" type="checkbox">Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb13"><input id="cb13" type="checkbox" checked="true">Holistic Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb14"><input id="cb14" type="checkbox">Medicine<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb16"><input id="cb16" type="checkbox" checked="true">Fitness<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb17"><input id="cb17" type="checkbox">Dating<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb18"><input id="cb18" type="checkbox">Travel<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="cb19"><input id="cb19" type="checkbox" checked="true">Travel Images<span></span></label>
+                              </div>
+                            </form>
+                          </div> <!-- entertainment-panel-body -->
+                        </div> 
+                      </div> 
+                      <!-- End Entertainment Streams accordion -->
+                      <!-- Start Motivational Streams accordion -->
+                      <div class="panel panel-zr panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title panel-title-zr">
+                            <a href="#motivational" data-toggle="collapse" data-parent="#accordion" class="collapsed collapse-anchor">Motivational Streams (1/7)<span></span></a>
+                          </h4>
+                        </div> <!-- panel-heading -->
+                        <div id="motivational" class="panel-collapse collapse">
+                          <div class="panel-body panel-body-zr">
+                            <!-- Each label in form MUST have "for" attribute for input element -->
+                            <form>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ccb1"><input id="ccb1" type="checkbox" checked="true">Cooking<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ccb2"><input id="ccb2" type="checkbox">Healthy Cookings<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ccb3"><input id="ccb3" type="checkbox">Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ccb4"><input id="ccb4" type="checkbox" checked="true">Holistic Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ccb5"><input id="ccb5" type="checkbox">Medicine<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ccb6"><input id="ccb6" type="checkbox" checked="true">Fitness<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ccb7"><input id="ccb7" type="checkbox">Dating<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ccb8"><input id="ccb8" type="checkbox">Travel<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ccb9"><input id="ccb9" type="checkbox" checked="true">Travel Images<span></span></label>
+                              </div>
+                            </form>
+                          </div> <!-- motivational-panel-body -->
+                        </div> 
+                      </div> 
+                      <!-- End Motivational Streams accordion -->
+                      <!-- Start Sports Streams accordion -->
+                      <div class="panel panel-zr panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title panel-title-zr">
+                            <a href="#sports" data-toggle="collapse" data-parent="#accordion" class="collapsed collapse-anchor">Sports Streams (2/4)<span></span></a>
+                          </h4>
+                        </div> <!-- panel-heading -->
+                        <div id="sports" class="panel-collapse collapse">
+                          <div class="panel-body panel-body-zr">
+                            <!-- Each label in form MUST have "for" attribute for input element -->
+                            <form>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ecb1"><input id="ecb1" type="checkbox" checked="true">Cooking<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ecb2"><input id="ecb2" type="checkbox">Healthy Cookings<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ecb3"><input id="ecb3" type="checkbox">Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ecb4"><input id="ecb4" type="checkbox" checked="true">Holistic Health<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ecb5"><input id="ecb5" type="checkbox">Medicine<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ecb6"><input id="ecb6" type="checkbox" checked="true">Fitness<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ecb7"><input id="ecb7" type="checkbox">Dating<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ecb8"><input id="ecb8" type="checkbox">Travel<span></span></label>
+                              </div>
+                              <div class="checkbox checkbox-zr">
+                                <label for="ecb9"><input id="ecb9" type="checkbox" checked="true">Travel Images<span></span></label>
+                              </div>
+                            </form>
+                          </div> <!-- sports-panel-body -->
+                        </div> 
+                      </div> 
+                      <!-- End Sports Streams accordion -->
+                    </div> <!-- panel-group -->
+                  </div> <!-- collapsable-list -->
+                </div>
+                <!-- End Currated Tab Left Pane -->
+                <!-- Start Custom Tab Left Pane -->
+                <div class="tab-pane" id="custom">
+                  <h3 class="left-pane-header-small mb20"><a href="" data-toggle="modal" data-target="#custom-stream" class="">Custom Streams</a></h3>
+                  <form>
+                    <div class="checkbox checkbox-zr">
+                      <label for="dcb1"><input id="dcb1" type="checkbox" checked="true">E-Cigarettes<span></span></label>
+                    </div>
+                  </form>
+                </div>
+                <!-- End Custom Tab Left Pane -->
+                <!-- Start Key Phrases Tab Left Pane -->
+                <div class="tab-pane" id="keyphrases">
+                  <h3 class="left-pane-header-small mb30">Source items with these keywords:</h3>
+                  <div class="left-pane-input-block mb15">
+                    <input type="text" class="keyphrase-input" placeholder="Key Phrase">
+                    <div class="sentiment-select">
+                      <select name="" id="">
+                        <option value="">Sentiment</option>
+                      </select>
+                    </div> <!-- channel-select -->
+                  </div> <!-- input-block -->
+                  <div class="left-pane-input-block ta-right">
+                    <a href="" class="what-sentiment-link">What is Sentiment?</a>
+                    <button class="btn-add-sentiment">Add</button>
+                  </div> <!-- input-block -->
+                  <table class="table-zr mt40">
+                    <thead>
+                      <tr>
+                        <th class="select-cell-header">Select</th>
+                        <th class="keyphrase-cell-header">Key Phrase</th>
+                        <th class="sentiment-cell-header">Sentiment</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="select-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="kpcb1"><input id="kpcb1" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                        <td class="keyphrase-cell">Viral Loop</td>
+                        <td class="sentiment-cell">None</td>
+                      </tr>
+                      <tr>
+                        <td class="select-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="kpcb2"><input id="kpcb2" type="checkbox"><span></span></label>
+                          </div>
+                        </td>
+                        <td class="keyphrase-cell">Minimum Viable Product</td>
+                        <td class="sentiment-cell">None</td>
+                      </tr>
+                      <tr>
+                        <td class="select-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="kpcb3"><input id="kpcb3" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                        <td class="keyphrase-cell">Automated Tweets</td>
+                        <td class="sentiment-cell">None</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button class="remove-table-item mt20">Remove</button>
+                </div>
+                <!-- End Key Phrases Tab Left Pane -->
+                <!-- Start Filters Tab Left Pane -->
+                <div class="tab-pane" id="filters">
+                  <h3 class="left-pane-header mb20">Filters:</h3>
+                  <h5 class="left-pane-header mb15">Exclude items with this keywords:</h5>
+                  <form action="" class="form-inline">
+                    <div class="form-group left-pane-input-block">
+                      <input type="email" class="filter-input form-control " id="" placeholder="Keyword">
+                      <div class="checkbox checkbox-zr filter-cb">
+                        <label for="kwcb1"><input id="kwcb1" type="checkbox" checked="true">Global<span></span></label>
+                      </div>
+                      <button class="add-filter-btn">Add</button>
+                    </div> <!-- form-group -->
+                  </form>
+                  <table class="table-zr mt30">
+                    <thead>
+                      <tr>
+                        <th class="select-cell-header">Select</th>
+                        <th class="keyword-cell-header">Keyword</th>
+                        <th class="global-cell-header">Global</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="select-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="ftcb1"><input id="ftcb1" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                        <td class="keyword-cell">Sex</td>
+                        <td class="global-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="ftcb2"><input id="ftcb2" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="select-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="ftcb3"><input id="ftcb3" type="checkbox"><span></span></label>
+                          </div>
+                        </td>
+                        <td class="keyword-cell">God</td>
+                        <td class="global-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="ftcb4"><input id="ftcb4" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="select-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="ftcb5"><input id="ftcb5" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                        <td class="keyword-cell">Religion</td>
+                        <td class="global-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="ftcb6"><input id="ftcb6" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button class="remove-table-item mt20">Remove</button>
+                  <h3 class="left-pane-header mb20 mt30">Domains:</h3>
+                  <h5 class="left-pane-header mb15">Exclude content fom these domains:</h5>
+                  <form action="" class="form-inline">
+                    <div class="form-group left-pane-input-block">
+                      <input type="email" class="filter-input form-control " id="" placeholder="URL">
+                      <div class="checkbox checkbox-zr filter-cb">
+                        <label for="urlcb1"><input id="urlcb1" type="checkbox" checked="true">Global<span></span></label>
+                      </div>
+                      <button class="add-filter-btn">Add</button>
+                    </div> <!-- form-group -->
+                  </form>
+                  <table class="table-zr mt30">
+                    <thead>
+                      <tr>
+                        <th class="select-cell-header">Select</th>
+                        <th class="keyword-cell-header">Domain</th>
+                        <th class="global-cell-header">Global</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="select-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="dftcb1"><input id="dftcb1" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                        <td class="keyword-cell">www.example.com</td>
+                        <td class="global-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="dftcb2"><input id="dftcb2" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="select-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="dftcb3"><input id="dftcb3" type="checkbox"><span></span></label>
+                          </div>
+                        </td>
+                        <td class="keyword-cell">www.example2.com</td>
+                        <td class="global-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="dftcb4"><input id="dftcb4" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="select-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="dftcb5"><input id="dftcb5" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                        <td class="keyword-cell">www.example3.com</td>
+                        <td class="global-cell">
+                          <div class="checkbox checkbox-zr mb0">
+                            <label for="dftcb6"><input id="dftcb6" type="checkbox" checked="true"><span></span></label>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button class="remove-table-item mt20">Remove</button>
+                </div>
+                <!-- End Filters Tab Left Pane -->
+                <!-- Start Preferences Tab Left Pane -->
+                <div class="tab-pane" id="settings">
+                  <h3 class="left-pane-header mb20">Channel Preferences:</h3>
+                  <form action="" class="form-inline">
+                    <div class="form-group left-pane-input-block">
+                      <label for="handleinput" class="">Handle:</label>
+                      <input type="text" class="handle-input form-control " id="handleinput" placeholder="@audreymelnick">
+                      <button class="authorize-btn">Authorize</button>
+                    </div> <!-- form-group -->
+                    <div class="mt30 form-group left-pane-input-block max-zoots-input">
+                      <label for="">Maximum zoots per day:</label>
+                      <input type="text" maxlength="2">
+                    </div> <!-- form-group -->
+                    <div class="mt20 form-group left-pane-input-block start-tweet-input">
+                      <label for="">Start tweeting at:</label>
+                      <input type="text" maxlength="2"><span>:</span><input type="text">
+                      <div class="checkbox checkbox-zr ampm-checkbox mb0">
+                          <label for="ampm1"><input id="ampm1" type="checkbox" checked=""><span></span></label>
+                      </div>
+                    </div> <!-- form-group -->
+                    <div class="mt20 form-group left-pane-input-block stop-tweet-input">
+                      <label for="">Stop tweeting at:</label>
+                      <input type="text" maxlength="2"><span>:</span><input type="text">
+                      <div class="checkbox checkbox-zr ampm-checkbox mb0">
+                          <label for="ampm2"><input id="ampm2" type="checkbox" checked=""><span></span></label>
+                      </div>
+                    </div> <!-- form-group -->
+                    <div class="form-group mt20">
+                      <label for="">I'm in:</label>
+                      <a href="" data-toggle="modal" data-target="#account-setting-modal">Pacific Standard Time (PST)</a>
+                    </div> <!-- form-group -->
+                  </form>
+                  <div class="checkbox checkbox-zr mt30">
+                    <label for="prefcb1"><input id="prefcb1" type="checkbox" checked="">Include Source of Post using "via @TwitterHandle"<span></span></label>
+                    <a href="" class="small-anchor pull-right hidden-xs">example</a>
+                  </div>
+                  <div class="checkbox checkbox-zr mt30">
+                    <label for="prefcb2"><input id="prefcb2" type="checkbox" checked="">Add Hashtags<span></span></label>
+                    <a href="" class="small-anchor pull-right hidden-xs">example</a>
+                  </div>
+                  <div class="checkbox checkbox-zr mt30">
+                    <label for="prefcb3"><input id="prefcb3" type="checkbox" checked="">Include Weekend Posts<span></span></label>
+                  </div>
+                  <div class="checkbox checkbox-zr mt30">
+                    <label for="prefcb4"><input id="prefcb4" type="checkbox" checked="">This channel is Active<span></span></label>
+                  </div>
+                </div>
+                <!-- End Preferences Tab Left Pane -->
+                <!-- Start Recurring Tab Left Pane -->
+                <div class="tab-pane" id="recurring">
+                  <h3 class="left-pane-header">Recurring Posts:</h3>
+                  <p>Define posts you want posted on a recurring basis. When the list is exhausted, it will cycle through again.</p>
+                  <form action="" class="form-inline">
+                    <div class=" block-center form-group left-pane-input-block mt10">
+                      <label for="handleinput" class="">Recurring posts per day:</label>
+                      <input type="text" class="post-per-day-input form-control " id="postsday" placeholder="" maxlength="4">
+                    </div> <!-- form-group -->
+                    <div class="form-group mt20">
+                      <textarea name="" id="" cols="50" rows="4" maxlength="140" placeholder="Here's where you'll write your post..."></textarea>
+                    </div>
+                    <div class="form-group pull-right mt20">
+                      <button class="add-recurring-btn">Add</button>
+                    </div>
+                    <div class="clearfix h50"></div>
+                  </form>
+                  <div class="data-repeater mt30">
+                    <div class="data-repeater-item">
+                      <h5>Know anyone whose Twitter account is neglected? Tell them about ZootRock!</h5>
+                      <div class="checkbox checkbox-zr onoff-checkbox mb0">
+                          <label for="onoff1"><input id="onoff1" type="checkbox" checked=""><span></span></label>
+                      </div>
+                      <a href="" class="close-post"></a>
+                    </div> <!-- data-repeater-item -->
+                    <div class="data-repeater-item">
+                      <h5>Get a 10% discount on your ZootRock Account when you refer your friends!</h5>
+                      <div class="checkbox checkbox-zr onoff-checkbox mb0">
+                          <label for="onoff2"><input id="onoff2" type="checkbox" checked="true"><span></span></label>
+                      </div>
+                      <a href="" class="close-post"></a>
+                    </div> <!-- data-repeater-item -->
+                    <div class="data-repeater-item">
+                      <h5>“I love TweetRock almost as much as I love Twitter!”  - a customer of ZootRock</h5>
+                      <div class="checkbox checkbox-zr onoff-checkbox mb0">
+                          <label for="onoff3"><input id="onoff3" type="checkbox" checked=""><span></span></label>
+                      </div>
+                      <a href="" class="close-post"></a>
+                    </div> <!-- data-repeater-item -->
+                    <div class="data-repeater-item">
+                      <h5>How many times a day do you tweet?</h5>
+                      <div class="checkbox checkbox-zr onoff-checkbox mb0">
+                          <label for="onoff4"><input id="onoff4" type="checkbox" checked="false"><span></span></label>
+                      </div>
+                      <a href="" class="close-post"></a>
+                    </div> <!-- data-repeater-item -->
+                    <div class="data-repeater-item">
+                      <h5>“I love TweetRock almost as much as I love Twitter!”  - a customer of ZootRock</h5>
+                      <div class="checkbox checkbox-zr onoff-checkbox mb0 mt15">
+                          <label for="onoff5"><input id="onoff5" type="checkbox" checked=""><span></span></label>
+                      </div>
+                      <a href="" class="close-post"></a>
+                    </div> <!-- data-repeater-item -->
+                  </div> <!-- data-repeater -->
+                </div>
+                <!-- End Recurring Tab Left Pane -->
+              </div> <!-- tab-content -->
+            </div> <!-- left-pane-wrap -->
+            </div> <!-- col-md-12 -->
+            <button class="btn-activate-zr btn btn-block visible-lg visible-md">ACTIVATE</button>
+          </div> <!-- row -->
+          
+        </div> 
+        <!-- End Left Pane -->
+        <!-- Start Right Pane -->
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="right-pane-header right-pane-width mt0 mb0">Selected Streams</h3>
+              <div class="selected-stream right-pane-width" style="padding: 20px;">
+                <form id="sstream">
+                  <div class="checkbox checkbox-zr checkbox-eye">
+                    <label for="scb1">
+                      <input id="scb1" type="checkbox" checked="true"><strong>Curated: </strong>Startup
+                      <span></span>
+                    </label>
+                    <span class="pull-right">%</span>
+                    <input type="text" class="percentage-input pull-right" maxlength="3">
+                  </div>
+                  <div class="checkbox checkbox-zr checkbox-eye">
+                    <label for="scb2">
+                      <input id="scb2" type="checkbox"><strong>Curated: </strong>Enterpreneur
+                      <span></span>
+                    </label>
+                    <span class="pull-right">%</span>
+                    <input type="text" class="percentage-input pull-right" maxlength="3">
+                  </div>
+                  <div class="checkbox checkbox-zr checkbox-eye">
+                    <label for="scb3">
+                      <input id="scb3" type="checkbox"><strong>Keyprase: </strong>"Viral Loop"
+                      <span></span>
+                    </label>
+                    <span class="pull-right">%</span>
+                    <input type="text" class="percentage-input pull-right" maxlength="3">
+                  </div>
+                  <div class="checkbox checkbox-zr checkbox-eye">
+                    <span class="pull-right">%</span>
+                    <label for="scb4">
+                      <input id="scb4" type="checkbox"><strong>Key Phrase: </strong>"Automated Tweet"
+                      <span></span>
+                    </label>
+                    <input type="text" class="percentage-input pull-right" maxlength="3">
+                  </div>
+                  <div class="checkbox checkbox-zr checkbox-eye">
+                    <span class="pull-right">%</span>
+                    <label for="scb5">
+                      <input id="scb5" type="checkbox"><strong>Custom: </strong>E-Cigarettes
+                      <span></span>
+                    </label>
+                    <input type="text" class="percentage-input pull-right" maxlength="3">
+                  </div>
+                  <div class="checkbox checkbox-zr checkbox-eye">
+                    <span class="pull-right">%</span>
+                    <label for="scb5">
+                      <input id="scb5" type="checkbox"><strong>Custom: </strong>E-Cigarettes
+                      <span></span>
+                    </label>
+                    <input type="text" class="percentage-input pull-right" maxlength="3">
+                  </div>
+                </form>
+              </div>
+            </div> <!-- col-md-12 -->
+          </div> <!-- row -->
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="right-pane-header right-pane-width m0">Sample Zoots</h3>
+              <div class="sample-posts-pane right-pane-width">
+                <div class="sample-posts">
+                  <article class="sample-post">
+                    <p>Kraken and Owl Whales: Take Dip In History's Most Terrifying Sea Monsters via @Wired http://dlvr.it/3yp7s8</p>
+                    <p class="article-source pull-right">from "Entepreneur" Curted Stream</p>
+                    <div class="clearfix"></div>
+                  </article> <!-- sample-post -->
+                  <article class="sample-post">
+                    <p>Brand Shop "taps" into its expertise to build brewery via @EntMagazine http://dlvr.it/3yp7s8</p>
+                    <p class="article-source pull-right">from "Entepreneur" Curted Stream</p>
+                    <div class="clearfix"></div>
+                  </article> <!-- sample-post -->
+                  <article class="sample-post">
+                    <p>Twitter suspected of data misuse, law violations in EU and Russia via @VentureBeat http://dlvr.it/3yp7s8</p>
+                    <p class="article-source pull-right">from "Entepreneur" Curted Stream</p>
+                    <div class="clearfix"></div>
+                  </article> <!-- sample-post -->
+                  <article class="sample-post">
+                    <p>Boss. http://dlvr.it/3yp7s8</p>
+                    <div class="article-image">
+                      <p class="article-img-source pull-left">pic.twitter.com/V78VCRFZ4p</p>
+                      <div class="clearfix"></div>
+                      <img src="img/articleimg.jpg" alt="">
+                    </div>
+                    <p class="article-source pull-right">from "Entepreneur" Curted Stream</p>
+                    <div class="clearfix"></div>
+                  </article> <!-- sample-post -->
+                  <article class="sample-post">
+                    <p>Twitter suspected of data misuse, law violations in EU and Russia via @VentureBeat http://dlvr.it/3yp7s8</p>
+                    <p class="article-source pull-right">from "Entepreneur" Curted Stream</p>
+                    <div class="clearfix"></div>
+                  </article> <!-- sample-post -->
+                </div> <!-- sample-posts -->
+              </div> <!-- sample-posts-pane -->
+            </div> <!-- col-md-12 -->
+            <button class="btn-activate-zr btn btn-block hidden-lg hidden-md">ACTIVATE</button>
+          </div> <!-- row -->
+        </div> 
+        <!-- End Right Pane -->
+      </div>
+      <!-- End two pane row -->
+    </div> <!-- main-content -->
+    <footer>
+      <div class="container">
+        <div class="row footer-link-row">
+          <div class="col-md-3">
+            <ul class="social-links">
+              <li><img src="img/fbicon.png" alt=""><a href="">Become a Fan</a></li>
+              <li><img src="img/twicon.png" alt=""><a href="">Follow ZootRock</a></li>
+              <li><img src="img/twicon.png" alt=""><a href="">ZootRock Dating</a></li>
+              <li><img src="img/twicon.png" alt=""><a href="">ZootRock Curious Mind</a></li>
+            </ul> <!-- social-links -->
+          </div>
+          <div class="col-md-3">
+            <h5 class="link-list-header">About</h5>
+            <ul class="link-list">
+              <li><a href="">What is ZootRock?</a></li>
+              <li><a href="">Feature & Benefits</a></li>
+              <li><a href="">Pricing</a></li>
+              <li><a href="">Terms of Service</a></li>
+              <li><a href="">Privacy Policy</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="link-list-header">Resources</h5>
+            <ul class="link-list">
+              <li><a href="">FAQ</a></li>
+              <li><a href="">Knowledge Base</a></li>
+              <li><a href="">Support</a></li>
+              <li><a href="">Press</a></li>
+              <li><a href="">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="link-list-header">Get Involved</h5>
+            <ul class="link-list">
+              <li><a href="">Publisher Program</a></li>
+              <li><a href="">Submit Your Site or Blog</a></li>
+              <li><a href="">Jobs</a></li>
+              <li><a href="">Partners</a></li>
+              <li><a href="">Affiliates</a></li>
+            </ul>
+          </div>
+        </div> <!-- row -->
+        <div class="row">
+          <div class="col-md-6 footer-bottom-text"><p>Copyright 2013 ZootRock</p></div>
+          <div class="col-md-6 footer-bottom-text"><p class="pull-right">Design by Cyber Superpowers</p></div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </footer>
+      <!-- Modal Popups -->
+      <!-- 3-Custom Stream -->
+      <div class="modal fade" id="custom-stream" tabindex="-1" role="dialog" aria-labelledby="3-custom-stream" aria-hidden="true">
+        <div class="modal-dialog custom-stream-modal">
+          <div class="modal-content">
+            <div class="modal-header modal-header-zr">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h3 class="modal-title" id="myModalLabel">Custom Stream</h3>
+            </div>
+            <div class="modal-body">
+              <div class="block-center">
+                <form action="" class="form-inline">
+                  <div class="form-group modal-input-block">
+                    <label for="streamname" class="stream-name">Stream Name</label>
+                    <input type="text" placeholder="Sample Stream Name" class="sample-stream-input">
+                  </div>
+                </form>
+              </div>
+              <div class="add-source-wrap mt20">
+                <span class="add-source-border-title">
+                  Add Source
+                </span>
+                <div class="row">
+                 <div class="col-md-4"><input type="text" placeholder="Source Name"></div> 
+                 <div class="col-md-4"><input type="text" placeholder="RSS Feed"></div> 
+                 <div class="col-md-4"><input type="text" placeholder="Twitter Handle"></div> 
+                </div> <!-- row -->
+                <div class="row mt10 add-source-help">
+                  <div class="col-md-4"><a href="" class="pull-right">What's this?</a></div>
+                  <div class="col-md-4"><a href="" class="pull-right">What's an RSS Feed?</a></div>
+                  <div class="col-md-4"><p class="pull-right">Include @ - e.g. @ZootRock</p></div>
+                </div> <!-- row -->
+                <div class="row">
+                  <div class="col-md-2 col-md-offset-10">
+                    <button class="pull-right btn-orange-small">Add</button>
+                  </div>
+                </div> <!-- row -->
+              </div> <!-- add-source-wrap -->
+              <table class="custom-stream-table mt25 mb15">
+                <thead>
+                  <tr>
+                    <th class="checkbox-column"></th>
+                    <th class="sourcename-column">Source Name</th>
+                    <th class="rssfeed-column">RSS Feed</th>
+                    <th class="twitterhandle-column">Twitter Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="checkbox checkbox-zr">
+                        <label for="csm1"><input id="csm1" type="checkbox" checked="true"><span></span></label>
+                      </div>
+                    </td>
+                    <td>Sample Name Text</td>
+                    <td>Sample Feed Text</td>
+                    <td>@SampleAccount</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="checkbox checkbox-zr">
+                        <label for="csm2"><input id="csm2" type="checkbox" checked="true"><span></span></label>
+                      </div>
+                    </td>
+                    <td>Sample Name Text</td>
+                    <td>Sample Feed Text</td>
+                    <td>@SampleAccount</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="checkbox checkbox-zr">
+                        <label for="csm3"><input id="csm3" type="checkbox" checked="true"><span></span></label>
+                      </div>
+                    </td>
+                    <td>Sample Name Text</td>
+                    <td>Sample Feed Text</td>
+                    <td>@SampleAccount</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="checkbox checkbox-zr">
+                        <label for="csm4"><input id="csm4" type="checkbox" checked="true"><span></span></label>
+                      </div>
+                    </td>
+                    <td>Sample Name Text</td>
+                    <td>Sample Feed Text</td>
+                    <td>@SampleAccount</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="checkbox checkbox-zr">
+                        <label for="csm5"><input id="csm5" type="checkbox" checked="true"><span></span></label>
+                      </div>
+                    </td>
+                    <td>Sample Name Text</td>
+                    <td>Sample Feed Text</td>
+                    <td>@SampleAccount</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="checkbox checkbox-zr">
+                        <label for="csm6"><input id="csm6" type="checkbox" checked="true"><span></span></label>
+                      </div>
+                    </td>
+                    <td>Sample Name Text</td>
+                    <td>Sample Feed Text</td>
+                    <td>@SampleAccount</td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="remove-table-item pull-left">Remove</button>
+              <button class="btn-orange-small pull-right">OK</button>
+              <div class="clearfix"></div>
+            </div> <!-- modal-body -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- End 3-Custom Stream -->
+      <!-- Start Account Settings Modal -->
+      <div class="modal fade" id="account-setting-modal" tabindex="-1" role="dialog" aria-labelledby="account-settings" aria-hidden="true">
+        <div class="modal-dialog account-settings-modal">
+          <div class="modal-content">
+            <div class="modal-header modal-header-zr">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title modal-title-zr" id="myModalLabel">Account Settings</h4>
+            </div>
+            <div class="modal-body">
+              <!-- Add .validation-error to input field if vaildation false -->
+              <form class="form-horizontal ac-modal-form" role="form">
+                <div class="form-group validation-box mb20">
+                  <p class="error">The following errors occured:</p>
+                  <p><i>Required Field</i> - Last Name</p>
+                  <p><i>Required Field</i> - Email</p>
+                </div>
+                <div class="form-group">
+                  <label for="asfn" class="control-label col-md-3">First Name:</label>
+                  <div class="col-md-7 acinput">
+                    <input type="text" class="form-control" id="asfn" placeholder="">
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group">
+                  <label for="asln" class="control-label col-md-3">Last Name:</label>
+                  <div class="col-md-7 acinput">
+                    <input type="text" class="form-control validation-error" id="asln" placeholder="">
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group">
+                  <label for="asem" class="control-label col-md-3">Email:</label>
+                  <div class="col-md-7 acinput">
+                    <input type="email" class="form-control validation-error" id="asem" placeholder="">
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group">
+                  <label for="asem" class="control-label col-md-3">Company:</label>
+                  <div class="col-md-7 acinput">
+                    <input type="text" class="form-control" id="asc" placeholder="">
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group">
+                  <label for="asem" class="control-label col-md-3">Time Zone:</label>
+                  <div class="col-md-7 acinput">
+                    <div class="timezone-select">
+                      <select name="" id="">
+                        <option>(GMT-11:00) International Date Line West</option>
+                        <option>(GMT-11:00) Midway Island</option>
+                        <option>(GMT-11:00) Samoa</option>
+                        <option>(GMT-10:00) Hawaii</option>
+                        <option>(GMT-09:00) Alaska</option>
+                        <option>(GMT-08:00) Pacific Time (US & Canada)</option>
+                        <option>(GMT-08:00) Tijuana</option>
+                        <option>(GMT-07:00) Arizona</option>
+                        <option>(GMT-07:00) Chihuahua</option>
+                        <option>(GMT-07:00) Mazatlan</option>
+                        <option>(GMT-07:00) Mountain Time (US & Canada)</option>
+                        <option>(GMT-06:00) Central America</option>
+                        <option>(GMT-06:00) Central Time (US & Canada)</option>
+                        <option>(GMT-06:00) Guadalajara</option>
+                        <option>(GMT-06:00) Mexico City</option>
+                        <option>(GMT-06:00) Monterrey</option>
+                        <option>(GMT-06:00) Saskatchewan</option>
+                        <option>(GMT-05:00) Bogota</option>
+                        <option>(GMT-05:00) Eastern Time (US & Canada)</option>
+                        <option>(GMT-05:00) Indiana (East)</option>
+                        <option>(GMT-05:00) Lima</option>
+                        <option>(GMT-05:00) Quito</option>
+                        <option>(GMT-04:30) Caracas</option>
+                        <option>(GMT-04:00) Atlantic Time (Canada)</option>
+                        <option>(GMT-04:00) Georgetown</option>
+                        <option>(GMT-04:00) La Paz</option>
+                        <option>(GMT-04:00) Santiago</option>
+                        <option>(GMT-03:30) Newfoundland</option>
+                        <option>(GMT-03:00) Brasilia</option>
+                        <option>(GMT-03:00) Buenos Aires</option>
+                        <option>(GMT-03:00) Greenland</option>
+                        <option>(GMT-02:00) Mid-Atlantic</option>
+                        <option>(GMT-01:00) Azores</option>
+                        <option>(GMT-01:00) Cape Verde Is.</option>
+                        <option>(GMT+00:00) Casablanca</option>
+                        <option>(GMT+00:00) Dublin</option>
+                        <option>(GMT+00:00) Edinburgh</option>
+                        <option>(GMT+00:00) Lisbon</option>
+                        <option>(GMT+00:00) London</option>
+                        <option>(GMT+00:00) Monrovia</option>
+                        <option>(GMT+00:00) UTC</option>
+                        <option>(GMT+01:00) Amsterdam</option>
+                        <option>(GMT+01:00) Belgrade</option>
+                        <option>(GMT+01:00) Berlin</option>
+                        <option>(GMT+01:00) Bern</option>
+                        <option>(GMT+01:00) Bratislava</option>
+                        <option>(GMT+01:00) Brussels</option>
+                        <option>(GMT+01:00) Budapest</option>
+                        <option>(GMT+01:00) Copenhagen</option>
+                        <option>(GMT+01:00) Ljubljana</option>
+                        <option>(GMT+01:00) Madrid</option>
+                        <option>(GMT+01:00) Paris</option>
+                        <option>(GMT+01:00) Prague</option>
+                        <option>(GMT+01:00) Rome</option>
+                        <option>(GMT+01:00) Sarajevo</option>
+                        <option>(GMT+01:00) Skopje</option>
+                        <option>(GMT+01:00) Stockhol</option>
+                        <option>(GMT+01:00) Vienna</option>
+                        <option>(GMT+01:00) Warsaw</option>
+                        <option>(GMT+01:00) West Central Africa</option>
+                        <option>(GMT+01:00) Zagreb</option>
+                        <option>(GMT+02:00) Athens</option>
+                        <option>(GMT+02:00) Bucharest</option>
+                        <option>(GMT+02:00) Cairo</option>
+                        <option>(GMT+02:00) Harare</option>
+                        <option>(GMT+02:00) Helsinki</option>
+                        <option>(GMT+02:00) Istanbul</option>
+                        <option>(GMT+02:00) Jerusalem</option>
+                        <option>(GMT+02:00) Kyiv</option>
+                        <option>(GMT+02:00) Pretoria</option>
+                        <option>(GMT+02:00) Riga</option>
+                        <option>(GMT+02:00) Sofia</option>
+                        <option>(GMT+02:00) Tallinn</option>
+                        <option>(GMT+02:00) Vilnius</option>
+                        <option>(GMT+03:00) Baghdad</option>
+                        <option>(GMT+03:00) Kuwait</option>
+                        <option>(GMT+03:00) Minsk</option>
+                        <option>(GMT+03:00) Nairobi</option>
+                        <option>(GMT+03:00) Riyadh</option>
+                        <option>(GMT+03:30) Tehran</option>
+                        <option>(GMT+04:00) Abu Dhabi</option>
+                        <option>(GMT+04:00) Baku</option>
+                        <option>(GMT+04:00) Moscow</option>
+                        <option>(GMT+04:00) Muscat</option>
+                        <option>(GMT+04:00) St. Petersburg</option>
+                        <option>(GMT+04:00) Tbilisi</option>
+                        <option>(GMT+04:00) Volgograd</option>
+                        <option>(GMT+04:00) Yerevan</option>
+                        <option>(GMT+04:30) Kabul</option>
+                        <option>(GMT+05:00) Islamabad</option>
+                        <option>(GMT+05:00) Karachi</option>
+                        <option>(GMT+05:00) Tashkent</option>
+                        <option>(GMT+05:30) Chennai</option>
+                        <option>(GMT+05:30) Kolkata</option>
+                        <option>(GMT+05:30) Mumbai</option>
+                        <option>(GMT+05:30) New Delhi</option>
+                        <option>(GMT+05:30) Sri Jayawardenepura</option>
+                        <option>(GMT+05:45) Kathmandu</option>
+                        <option>(GMT+06:00) Almaty</option>
+                        <option>(GMT+06:00) Astana</option>
+                        <option>(GMT+06:00) Dhaka</option>
+                        <option>(GMT+06:00) Ekaterinburg</option>
+                        <option>(GMT+06:30) Rangoon</option>
+                        <option>(GMT+07:00) Bangkok</option>
+                        <option>(GMT+07:00) Hanoi</option>
+                        <option>(GMT+07:00) Jakarta</option>
+                        <option>(GMT+07:00) Novosibirsk</option>
+                        <option>(GMT+08:00) Beijing</option>
+                        <option>(GMT+08:00) Chongqing</option>
+                        <option>(GMT+08:00) Hong Kong</option>
+                        <option>(GMT+08:00) Krasnoyarsk</option>
+                        <option>(GMT+08:00) Kuala Lumpur</option>
+                        <option>(GMT+08:00) Perth</option>
+                        <option>(GMT+08:00) Singapore</option>
+                        <option>(GMT+08:00) Taipei</option>
+                        <option>(GMT+08:00) Ulaan Bataar</option>
+                        <option>(GMT+08:00) Urumqi</option>
+                        <option>(GMT+09:00) Irkutsk</option>
+                        <option>(GMT+09:00) Osaka</option>
+                        <option>(GMT+09:00) Sapporo</option>
+                        <option>(GMT+09:00) Seoul</option>
+                        <option>(GMT+09:00) Tokyo</option>
+                        <option>(GMT+09:30) Adelaide</option>
+                        <option>(GMT+09:30) Darwin</option>
+                        <option>(GMT+10:00) Brisbane</option>
+                        <option>(GMT+10:00) Canberra</option>
+                        <option>(GMT+10:00) Guam</option>
+                        <option>(GMT+10:00) Hobart</option>
+                        <option>(GMT+10:00) Melbourne</option>
+                        <option>(GMT+10:00) Port Moresby</option>
+                        <option>(GMT+10:00) Sydney</option>
+                        <option>(GMT+10:00) Yakutsk</option>
+                        <option>(GMT+11:00) New Caledonia</option>
+                        <option>(GMT+11:00) Vladivostok</option>
+                        <option>(GMT+12:00) Auckland</option>
+                        <option>(GMT+12:00) Fiji</option>
+                        <option>(GMT+12:00) Kamchatka</option>
+                        <option>(GMT+12:00) Magadan</option>
+                        <option>(GMT+12:00) Marshall Is.</option>
+                        <option>(GMT+12:00) Solomon Is.</option>
+                        <option>(GMT+12:00) Wellington</option>
+                        <option>(GMT+13:00) Nuku'alo</option>
+                      </select>
+                    </div>
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group mt35">
+                  <div for="" class="col-md-3">
+                    <button class="remove-table-item pause-posts-btn pull-left">Pause All Posts</button>
+                  </div>
+                  <div class="col-md-7">
+                    <button class="btn-orange-small pull-right save-acc-btn">Save</button>
+                  </div>
+                </div> <!-- form-group -->
+                <div class="form-group">
+                  <div class="col-md-3">
+                    <a href="" data-dismiss="modal" class="pull-right">Cancel Account</a>
+                  </div>
+                </div> <!-- form-group -->
+              </form>
+            </div> <!-- modal-body -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- End Account Settings Modal -->
+      <!-- Start Add Channel Modal -->
+      <div class="modal fade" id="add-channel-modal" tabindex="-1" role="dialog" aria-labelledby="addchannel" aria-hidden="true">
+        <div class="modal-dialog add-channel-modal">
+          <div class="modal-content">
+            <div class="modal-header modal-header-zr">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title modal-title-zr" id="myModalLabel">Add a Channel for your content.</h4>
+              <h5>Automatically post to twitter or facebook, or if you have other plans for your content you can leverage an RSS Feed.</h5>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="social-img"><img src="img/twitter.png" alt=""></div>
+                  <h5 class="social-net-title twitter">twitter</h5>
+                </div>
+                <div class="col-md-4">
+                  <div class="social-img"><img src="img/facebook.png" alt=""></div>
+                  <h5 class="social-net-title facebook">facebook</h5>
+                </div>
+                <div class="col-md-4">
+                  <div class="social-img"><img src="img/rss.png" alt=""></div>
+                  <h5 class="social-net-title RSS">RSS</h5>
+                </div>
+              </div> <!-- row -->
+              <div class="row mt30">
+                <div class="col-md-4 ta-center"><a href="" class="twitter-btn">Connect</a></div>
+                <div class="col-md-4 ta-center"><a href="" class="fb-profile-btn">Connect Profile</a></div>
+                <div class="col-md-4 ta-center"><a href="" class="rss-btn">Connect</a></div>
+              </div>
+              <div class="row mb20">
+                <div class="col-md-4">
+                  <div class="checkbox checkbox-zr checkbox-grey add-ch-cbox mb0">
+                    <label for="acscb1"><input id="acscb1" type="checkbox" checked="true">follow @zootrock<span></span></label>
+                  </div>
+                </div>
+                <div class="col-md-4"><a href="" class="fb-page-btn ta-center">Connect Page</a></div>
+              </div>
+            </div> <!-- modal-body -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- End Add Channel Modal -->
+      <!-- Start Complete Signup Modal -->
+      <div class="modal fade" id="complete-signup-modal" tabindex="-1" role="dialog" aria-labelledby="complete-signup-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header modal-header-zr">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title modal-title-zr" id="myModalLabel">Complete Signup</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row ta-center mt30">
+                <div class="col-md-12"><p>What's the best email address for us to stay in touch with you?</p></div>
+              </div>
+              <div class="row ta-center mb20">
+                <div class="col-md-12">
+                  <div class="form-group modal-input-block">
+                    <input type="email" placeholder="" class="best-email-input">
+                  </div>
+                </div>
+              </div> <!-- row -->
+              <div class="row ta-center mb20">
+                <div class="col-md-12">
+                  <p>What time zone are you in?</p>
+                  <div class="timezone-select">
+                    <select name="" id="">
+                      <option>(GMT-11:00) International Date Line West</option>
+                      <option>(GMT-11:00) Midway Island</option>
+                      <option>(GMT-11:00) Samoa</option>
+                      <option>(GMT-10:00) Hawaii</option>
+                      <option>(GMT-09:00) Alaska</option>
+                      <option>(GMT-08:00) Pacific Time (US & Canada)</option>
+                      <option>(GMT-08:00) Tijuana</option>
+                      <option>(GMT-07:00) Arizona</option>
+                      <option>(GMT-07:00) Chihuahua</option>
+                      <option>(GMT-07:00) Mazatlan</option>
+                      <option>(GMT-07:00) Mountain Time (US & Canada)</option>
+                      <option>(GMT-06:00) Central America</option>
+                      <option>(GMT-06:00) Central Time (US & Canada)</option>
+                      <option>(GMT-06:00) Guadalajara</option>
+                      <option>(GMT-06:00) Mexico City</option>
+                      <option>(GMT-06:00) Monterrey</option>
+                      <option>(GMT-06:00) Saskatchewan</option>
+                      <option>(GMT-05:00) Bogota</option>
+                      <option>(GMT-05:00) Eastern Time (US & Canada)</option>
+                      <option>(GMT-05:00) Indiana (East)</option>
+                      <option>(GMT-05:00) Lima</option>
+                      <option>(GMT-05:00) Quito</option>
+                      <option>(GMT-04:30) Caracas</option>
+                      <option>(GMT-04:00) Atlantic Time (Canada)</option>
+                      <option>(GMT-04:00) Georgetown</option>
+                      <option>(GMT-04:00) La Paz</option>
+                      <option>(GMT-04:00) Santiago</option>
+                      <option>(GMT-03:30) Newfoundland</option>
+                      <option>(GMT-03:00) Brasilia</option>
+                      <option>(GMT-03:00) Buenos Aires</option>
+                      <option>(GMT-03:00) Greenland</option>
+                      <option>(GMT-02:00) Mid-Atlantic</option>
+                      <option>(GMT-01:00) Azores</option>
+                      <option>(GMT-01:00) Cape Verde Is.</option>
+                      <option>(GMT+00:00) Casablanca</option>
+                      <option>(GMT+00:00) Dublin</option>
+                      <option>(GMT+00:00) Edinburgh</option>
+                      <option>(GMT+00:00) Lisbon</option>
+                      <option>(GMT+00:00) London</option>
+                      <option>(GMT+00:00) Monrovia</option>
+                      <option>(GMT+00:00) UTC</option>
+                      <option>(GMT+01:00) Amsterdam</option>
+                      <option>(GMT+01:00) Belgrade</option>
+                      <option>(GMT+01:00) Berlin</option>
+                      <option>(GMT+01:00) Bern</option>
+                      <option>(GMT+01:00) Bratislava</option>
+                      <option>(GMT+01:00) Brussels</option>
+                      <option>(GMT+01:00) Budapest</option>
+                      <option>(GMT+01:00) Copenhagen</option>
+                      <option>(GMT+01:00) Ljubljana</option>
+                      <option>(GMT+01:00) Madrid</option>
+                      <option>(GMT+01:00) Paris</option>
+                      <option>(GMT+01:00) Prague</option>
+                      <option>(GMT+01:00) Rome</option>
+                      <option>(GMT+01:00) Sarajevo</option>
+                      <option>(GMT+01:00) Skopje</option>
+                      <option>(GMT+01:00) Stockhol</option>
+                      <option>(GMT+01:00) Vienna</option>
+                      <option>(GMT+01:00) Warsaw</option>
+                      <option>(GMT+01:00) West Central Africa</option>
+                      <option>(GMT+01:00) Zagreb</option>
+                      <option>(GMT+02:00) Athens</option>
+                      <option>(GMT+02:00) Bucharest</option>
+                      <option>(GMT+02:00) Cairo</option>
+                      <option>(GMT+02:00) Harare</option>
+                      <option>(GMT+02:00) Helsinki</option>
+                      <option>(GMT+02:00) Istanbul</option>
+                      <option>(GMT+02:00) Jerusalem</option>
+                      <option>(GMT+02:00) Kyiv</option>
+                      <option>(GMT+02:00) Pretoria</option>
+                      <option>(GMT+02:00) Riga</option>
+                      <option>(GMT+02:00) Sofia</option>
+                      <option>(GMT+02:00) Tallinn</option>
+                      <option>(GMT+02:00) Vilnius</option>
+                      <option>(GMT+03:00) Baghdad</option>
+                      <option>(GMT+03:00) Kuwait</option>
+                      <option>(GMT+03:00) Minsk</option>
+                      <option>(GMT+03:00) Nairobi</option>
+                      <option>(GMT+03:00) Riyadh</option>
+                      <option>(GMT+03:30) Tehran</option>
+                      <option>(GMT+04:00) Abu Dhabi</option>
+                      <option>(GMT+04:00) Baku</option>
+                      <option>(GMT+04:00) Moscow</option>
+                      <option>(GMT+04:00) Muscat</option>
+                      <option>(GMT+04:00) St. Petersburg</option>
+                      <option>(GMT+04:00) Tbilisi</option>
+                      <option>(GMT+04:00) Volgograd</option>
+                      <option>(GMT+04:00) Yerevan</option>
+                      <option>(GMT+04:30) Kabul</option>
+                      <option>(GMT+05:00) Islamabad</option>
+                      <option>(GMT+05:00) Karachi</option>
+                      <option>(GMT+05:00) Tashkent</option>
+                      <option>(GMT+05:30) Chennai</option>
+                      <option>(GMT+05:30) Kolkata</option>
+                      <option>(GMT+05:30) Mumbai</option>
+                      <option>(GMT+05:30) New Delhi</option>
+                      <option>(GMT+05:30) Sri Jayawardenepura</option>
+                      <option>(GMT+05:45) Kathmandu</option>
+                      <option>(GMT+06:00) Almaty</option>
+                      <option>(GMT+06:00) Astana</option>
+                      <option>(GMT+06:00) Dhaka</option>
+                      <option>(GMT+06:00) Ekaterinburg</option>
+                      <option>(GMT+06:30) Rangoon</option>
+                      <option>(GMT+07:00) Bangkok</option>
+                      <option>(GMT+07:00) Hanoi</option>
+                      <option>(GMT+07:00) Jakarta</option>
+                      <option>(GMT+07:00) Novosibirsk</option>
+                      <option>(GMT+08:00) Beijing</option>
+                      <option>(GMT+08:00) Chongqing</option>
+                      <option>(GMT+08:00) Hong Kong</option>
+                      <option>(GMT+08:00) Krasnoyarsk</option>
+                      <option>(GMT+08:00) Kuala Lumpur</option>
+                      <option>(GMT+08:00) Perth</option>
+                      <option>(GMT+08:00) Singapore</option>
+                      <option>(GMT+08:00) Taipei</option>
+                      <option>(GMT+08:00) Ulaan Bataar</option>
+                      <option>(GMT+08:00) Urumqi</option>
+                      <option>(GMT+09:00) Irkutsk</option>
+                      <option>(GMT+09:00) Osaka</option>
+                      <option>(GMT+09:00) Sapporo</option>
+                      <option>(GMT+09:00) Seoul</option>
+                      <option>(GMT+09:00) Tokyo</option>
+                      <option>(GMT+09:30) Adelaide</option>
+                      <option>(GMT+09:30) Darwin</option>
+                      <option>(GMT+10:00) Brisbane</option>
+                      <option>(GMT+10:00) Canberra</option>
+                      <option>(GMT+10:00) Guam</option>
+                      <option>(GMT+10:00) Hobart</option>
+                      <option>(GMT+10:00) Melbourne</option>
+                      <option>(GMT+10:00) Port Moresby</option>
+                      <option>(GMT+10:00) Sydney</option>
+                      <option>(GMT+10:00) Yakutsk</option>
+                      <option>(GMT+11:00) New Caledonia</option>
+                      <option>(GMT+11:00) Vladivostok</option>
+                      <option>(GMT+12:00) Auckland</option>
+                      <option>(GMT+12:00) Fiji</option>
+                      <option>(GMT+12:00) Kamchatka</option>
+                      <option>(GMT+12:00) Magadan</option>
+                      <option>(GMT+12:00) Marshall Is.</option>
+                      <option>(GMT+12:00) Solomon Is.</option>
+                      <option>(GMT+12:00) Wellington</option>
+                      <option>(GMT+13:00) Nuku'alo</option>
+                    </select>
+                  </div>
+                </div> <!-- col-md-12 -->
+              </div> <!-- row -->
+              <div class="row ta-center mb10">
+                <div class="col-md-12">
+                  <div class="checkbox checkbox-zr cb-rf">
+                    <label for="csb1"><input id="csb1" type="checkbox" checked="true">I agree to ZootRock's <a href="">Terms of Service</a><span></span></label>
+                  </div>
+                </div> <!-- col-md-12 -->
+              </div> <!-- row -->
+              <div class="row ta-center mb10">
+                <div class="col-md-12">
+                  <div class="checkbox checkbox-zr">
+                    <label for="csb2"><input id="csb2" type="checkbox" checked="true">Follow ZootRock on Twitter<span></span></label>
+                  </div>
+                </div> <!-- col-md-12 -->
+              </div> <!-- row -->
+              <div class="row ta-center">
+                <div class="col-md-12">
+                  <button class="get-started-btn">Get Started!</button>
+                </div>
+              </div> <!-- row -->
+            </div> <!-- modal-body -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- End Complete Signup Modal -->
+      <!-- Start Refer A Friend Modal -->
+      <div class="modal fade" id="refer-friend-modal" tabindex="-1" role="dialog" aria-labelledby="refer-friend-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header modal-header-zr">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title modal-title-zr" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+              <div class="row ta-center mb20">
+                <div class="col-md-12"><h3>Know somebody who might like ZootRock?</h3></div>
+              </div>
+              <div class="row ta-center mb10">
+                <div class="col-md-12">
+                  <p>Every friend you refer us that ends up signing up automatically knocks $10 off your monthly payment - forever.</p>
+                </div>
+              </div> <!-- row -->
+              <div class="row ta-center mb20">
+                <div class="col-md-12">
+                  <p>Enter their email address below:</p>
+                  <div class="form-group modal-input-block">
+                    <input type="email" placeholder="" class="best-email-input">
+                  </div>
+                </div> <!-- col-md-12 -->
+              </div> <!-- row -->
+              <div class="row ta-center mb10">
+                <div class="col-md-12">
+                  <div class="checkbox checkbox-zr cb-rf">
+                    <label for="rfcb1"><input id="rfcb1" type="checkbox" checked="true">I agree to ZootRock's <a href="">Referral Policy</a><span></span></label>
+                  </div>
+                </div> <!-- col-md-12 -->
+              </div> <!-- row -->
+              <div class="row ta-center">
+                <div class="col-md-12">
+                  <button class="get-started-btn">Send the Invite!</button>
+                </div>
+              </div> <!-- row -->
+            </div> <!-- modal-body -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- End Refer A Friend Modal -->
+      <!-- Start Select Plan Modal -->
+      <div class="modal fade" id="select-plan-modal" tabindex="-1" role="dialog" aria-labelledby="select-plan-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header modal-header-zr">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h2 class="modal-title modal-title-zr" id="myModalLabel"></h2>
+            </div>
+            <div class="modal-body">
+              <div class="row ta-center mb10">
+                <div class="col-md-12">
+                  <h2>Select Plan</h2>
+                </div>
+              </div> <!-- row -->
+              <div class="row ta-center mb10">
+                <div class="col-md-12">
+                  <h4>Based on your selections, your ZootRock usage is:</h4>
+                </div>
+              </div> <!-- row -->
+              <div class="row ta-center mb10">
+                <div class="col-md-10 col-md-offset-1">
+                  <table class="select-plan-table mt15 mb15">
+                    <thead>
+                      <tr>
+                        <th class="facility-column">Facility</th>
+                        <th class="usage-column">Your Usage</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td># of Curated Streams</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td># of Keyphrase Streams</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td># of Custom Stream Feeds</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td># of Recurring Tweets</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td># of Accounts</td>
+                        <td>2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div> <!-- col-md-12 -->
+              </div> <!-- row -->
+              <div class="row ta-center mb10">
+                <div class="col-md-8">
+                  <h5>This falls within our <a href="">Silver</a> plan for $73 per month</h5>
+                  <p class="p-small">(You still have 14 days to try ZootRock out for free)</p>
+                </div> <!-- col-md-9 -->
+                <div class="col-md-4">
+                  <button class="btn-orange-small btn-accept-plan mt5">Accept Plan</button>
+                </div> <!-- col-md-9 -->
+              </div> <!-- row -->
+              <div class="row">
+                <div class="col-md-4 col-md-offset-7 ta-center"><p class="mb0">I'm not done yet</p></div>
+              </div>
+              <div class="row ta-center">
+                <div class="col-md-6">
+                  <button class="make-adjustments-btn">Make adjustments</button>
+                </div>
+                <div class="col-md-6">
+                  <button class="add-account-btn">Add another Account</button>
+                </div>
+              </div> <!-- row -->
+            </div> <!-- modal-body -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- End Select Plan Modal -->
+    <!-- JavaScript -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.ddslick.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.min.js"></script>
+    <script src="js/script.js"></script>
+  <script id="IntercomSettingsScriptTag">
+    window.intercomSettings = {
+      // TODO: The current logged in user's email address.
+      email: "john.doe@example.com",
+      // TODO: The current logged in user's sign-up date as a Unix timestamp.
+      created_at: 1234567890,
+      app_id: "23fe6d3ff4097040b2f797abe2279364c12b65e9"
+    };
+  </script>
+  <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://static.intercomcdn.com/intercom.v1.js';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}};})()</script>
+  </body>
+</html>
